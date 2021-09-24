@@ -27,6 +27,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/font-awesome/css/font-awesome.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
@@ -71,6 +72,7 @@
             "production": {
               "browserTarget": "first-pro:build:production"
             },
+           
             "development": {
               "browserTarget": "first-pro:build:development"
             }
@@ -95,13 +97,28 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/font-awesome/css/font-awesome.css",
+              "node_modules/bootstrap/dist/css/bootstrap.css",
               "src/styles.css"
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
+        
       }
     }
   },
-  "defaultProject": "first-pro"
+  "defaultProject": "first-pro",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }

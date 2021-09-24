@@ -1,13 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
 import { AbstractControl, FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-form',
+  templateUrl: './form.component.html',
+  styleUrls: ['./form.component.css']
 })
-
-export class AppComponent {
+export class FormComponent implements OnInit {
   public myModel = ''
   public mask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
   form: FormGroup;
@@ -15,9 +15,14 @@ export class AppComponent {
   contactForm = this.fb.group({
   contacts: this.fb.array([this.createContact()])
   });
+
   
-constructor(private fb: FormBuilder) {}
- get contacts() {
+  constructor(private fb: FormBuilder) {}
+
+
+  ngOnInit(): void {
+  }
+  get contacts() {
     return this.contactForm.get('contacts') as FormArray;
   }
 
@@ -26,7 +31,7 @@ constructor(private fb: FormBuilder) {}
       firstName: ['', Validators.required],
       lastName: [''],
       email: ['', [Validators.required, Validators.email]],
-      phone: ['', [Validators.required,Validators.min(3)]],
+      phone: ['', [Validators.required,Validators.minLength(10)]],
     });
   }
   addContacts() {
@@ -57,5 +62,8 @@ constructor(private fb: FormBuilder) {}
 
   
   
+
+
+
 
 

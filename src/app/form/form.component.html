@@ -1,0 +1,59 @@
+<p>form works!</p>
+<div class="container">  
+    <form [formGroup]="contactForm">
+      <button (click)="addContacts()" class="btn btn-primary float-right" >+ Add contact</button>
+      <i class="fas fa-trash-alt"></i>
+      <div formArrayName="contacts">
+      <ngb-tabset [destroyOnHide]="false">  
+       <ngb-tab   *ngFor="let t of contacts.controls; let i = index" [formGroupName]="i">
+         <ng-template ngbTabTitle>
+           <i class="fa fa-trash" (click)="deleteContact(i)"></i>
+           contacts{{i+1}}
+         </ng-template>  
+           <ng-template ngbTabContent>  
+           <div class="row">
+               <div class="col-12">
+                  <h2>Contacts {{i + 1}}</h2>
+                 
+            </div>
+         </div>
+        <div class="row">
+          <div class="col-6">
+            <label for="{{'firstName'+i}}">First Name:* </label>
+            <input class="form-control" formControlName='firstName'  id="{{'firstName'+i}}" type="text" />
+            <span *ngIf="!t.get('firstName').valid && t.get('firstName').touched">enter first name</span>
+           </div>
+           <div class="col-6">
+             <label for="{{'lastName'+i}}">Last Name: </label>
+             <input class="form-control" formControlName='lastName' id="{{'lastName'+i}}" type="text" />
+           </div>
+        </div>
+        <div class="row">
+           <div class="col-6">
+             <label for="{{'email'+i}}">Email:* </label>
+             <input class="form-control" formControlName='email' id="{{'email'+i}}" type="text" />
+             <span *ngIf="!t.get('email').valid && t.get('email').dirty">enter a valid email</span>
+             <span *ngIf="!t.get('email').dirty && t.get('email').touched">enter an email</span>
+            </div>
+            <div class="col-6">
+               <label  for="{{'phone'+i}}">Phone: </label>
+               <input class="form-control" formControlName='phone' id="{{'phone'+i}}" type="text" [textMask]="{mask: mask}" ng-model="phone" ng-minlength="10" />
+               <span *ngIf="!t.get('phone').valid && t.get('phone').touched">enter phone number</span>
+               
+               
+              
+     
+               
+            </div>
+        </div>
+        <div>
+           <p>
+              <button type="submit"  class="btn btn-primary" (click)="onSubmit()"><i class="fas fa-trash-alt"></i>Submit</button>
+           </p>
+        </div>
+      </ng-template>  
+  </ngb-tab> 
+</ngb-tabset>  
+</div> 
+</form> 
+</div>
