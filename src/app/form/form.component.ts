@@ -16,13 +16,13 @@ export class FormComponent implements OnInit {
   contacts: this.fb.array([this.createContact()])
   });
 
-  
-  constructor(private fb: FormBuilder) {}
-
-
+ constructor(private fb: FormBuilder) {}
   ngOnInit(): void {
+    throw new Error('Method not implemented.');
   }
-  get contacts() {
+
+
+ get contacts() {
     return this.contactForm.get('contacts') as FormArray;
   }
 
@@ -37,13 +37,13 @@ export class FormComponent implements OnInit {
   addContacts() {
     this.contacts.push(this.createContact());
   }
-  
+
   deleteContact(i: number) {
-    this.contacts.removeAt(i)
+    this.contacts.removeAt(i);
   }
 
   get phone()
-  { 
+  {
     return this.contacts.get('phone');
   }
 
@@ -55,13 +55,13 @@ export class FormComponent implements OnInit {
 
 
 
- 
-  
 
-  
 
-  
-  
+
+
+
+
+
 
 
 

@@ -22,17 +22,11 @@ import { FormComponent } from './form/form.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-  
-    
-    FormsModule, 
-    ReactiveFormsModule, NgbModule,
+    FormsModule, ReactiveFormsModule, NgbModule,
     TextMaskModule
-    
-      
-  ],
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  
-}
+  }

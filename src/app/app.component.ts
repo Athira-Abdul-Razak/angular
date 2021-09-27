@@ -15,7 +15,7 @@ export class AppComponent {
   contactForm = this.fb.group({
   contacts: this.fb.array([this.createContact()])
   });
-  
+
 constructor(private fb: FormBuilder) {}
  get contacts() {
     return this.contactForm.get('contacts') as FormArray;
@@ -32,13 +32,13 @@ constructor(private fb: FormBuilder) {}
   addContacts() {
     this.contacts.push(this.createContact());
   }
-  
+
   deleteContact(i: number) {
-    this.contacts.removeAt(i)
+    this.contacts.removeAt(i);
   }
 
   get phone()
-  { 
+  {
     return this.contacts.get('phone');
   }
 
@@ -50,12 +50,12 @@ constructor(private fb: FormBuilder) {}
 
 
 
- 
-  
 
-  
 
-  
-  
+
+
+
+
+
 
 
