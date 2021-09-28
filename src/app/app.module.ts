@@ -25,6 +25,4 @@ import { BiilingComponent } from './biiling/biiling.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-  }
-
+export class AppModule {}

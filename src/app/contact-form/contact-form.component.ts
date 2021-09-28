@@ -48,22 +48,3 @@ export class ContactFormComponent implements OnInit {
   }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function createContact() {
-  throw new Error('Function not implemented.');
-}
-
