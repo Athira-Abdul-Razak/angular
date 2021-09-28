@@ -1,0 +1,75 @@
+
+<div class="container p-5">
+    <h1 class="mt-2 mb-5 text-center">Billing Address</h1>
+    <form class="row g-3" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div class="col-md-6">
+        <label for="inputname" class="form-label">Name</label>
+        <input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }"  id="inputname">
+        <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+            <div *ngIf="f.name.errors.required">Name is required</div>
+         </div>
+      
+      </div>
+      <div class="col-md-6">
+        <label for="inputaddress1" class="form-label">Address 1</label>
+        <input type="text" formControlName="address1" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.address1.errors }" id="inputaddress1">
+        <div *ngIf="submitted && f.address1.errors" class="invalid-feedback">
+          <div *ngIf="f.address1.errors.required">Address1 is required</div>
+       </div>
+      
+       
+      </div>
+      <div class="col-12">
+        <label for="inputAddress2" class="form-label">Address 2</label>
+        <input type="text" formControlName="address2" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.address2.errors }" id="inputAddress" placeholder="1234 Main St">
+        <div *ngIf="submitted && f.address2.errors" class="invalid-feedback">
+          <div *ngIf="f.address2.errors.required">Address2 is required</div>
+       </div>
+      </div>
+      <div class="col-md-6">
+        <label for="inputCity" class="form-label">City</label>
+        <input placeholder="Ludhiana" type="text" formControlName="city" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.city.errors }" id="inputCity">
+        <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+          <div *ngIf="f.city.errors.required">City is required</div>
+       </div>
+      </div>
+      <div class="col-md-4">
+        <label for="inputState" class="form-label">State</label>
+        <select id="inputState" class="form-select" formControlName="state" [ngClass]="{ 'is-invalid': submitted && f.state.errors }">
+          <option value="">Choose...</option>
+          <option value="punjab">Punjab</option>
+        </select>
+        <div *ngIf="submitted && f.state.errors" class="invalid-feedback">
+          <div *ngIf="f.state.errors.required">State is required</div>
+       </div>
+      </div>
+      <div class="col-md-2">
+        <label for="inputZip" class="form-label">Zip</label>
+        <input type="text" formControlName="zip" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.zip.errors }" id="inputZip">
+        <div *ngIf="submitted && f.zip.errors" class="invalid-feedback">
+          <div *ngIf="f.zip.errors.required">State is required</div>
+       </div>
+      </div>
+      <div class="col-12">
+        
+        <div class="col-md-4">
+            <label for="inputcountry" class="form-label">Country</label>
+            <select id="inputcountry" class="form-select" formControlName="country" [ngClass]="{ 'is-invalid': submitted && f.country.errors }">
+              <option value="">Choose...</option>
+              <option value="punjab">Punjab</option>
+            </select>
+            <div *ngIf="submitted && f.state.errors" class="invalid-feedback">
+              <div *ngIf="f.state.errors.required">State is required</div>
+           </div>
+          </div>
+          <div class="col-md-2">
+            <label for="inputZip" class="form-label">Phone</label>
+            <input type="number" formControlName="phone" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" id="inputphone">
+            
+          </div>
+      </div>
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+  </div>
