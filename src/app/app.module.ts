@@ -5,14 +5,14 @@ import { TextMaskModule } from 'angular2-text-mask';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormComponent } from './contactform/contactform.component';
+import { ContactFormComponent } from './contact-form/contact-form.component';
 import { AddressformComponent } from './addressform/addressform.component';
 import { BiilingComponent } from './biiling/biiling.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FormComponent,
+    ContactFormComponent,
     AddressformComponent,
     BiilingComponent
 ],
@@ -27,3 +27,4 @@ import { BiilingComponent } from './biiling/biiling.component';
 })
 export class AppModule {
   }
+
