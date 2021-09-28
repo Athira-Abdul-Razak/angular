@@ -4,7 +4,7 @@
     <i class="fas fa-trash-alt"></i>
     <div formArrayName="contacts">
       <ngb-tabset [destroyOnHide]="false">
-        <ngb-tab *ngFor="let t of contacts.controls; let i = index" [formGroupName]="i">
+        <ngb-tab *ngFor="let t of contacts.controls; let i = index" [formGroupName]='i'>
           <ng-template ngbTabTitle>
             <i class="fa fa-trash" (click)="deleteContact(i)"></i>
             contacts{{i+1}}
@@ -36,7 +36,7 @@
               <div class="col-6">
                 <label for="{{'phone'+i}}">Phone: </label>
                 <input class="form-control" formControlName='phone' id="{{'phone'+i}}" type="text"
-                  [textMask]="{mask: mask}" ng-model="phone" ng-minlength="10" />
+                  [textMask]="{mask: mask}" ng-model="phone" />
                 <span *ngIf="!t.get('phone').valid && t.get('phone').touched">enter phone number</span>
               </div>
             </div>

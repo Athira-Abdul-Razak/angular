@@ -6,14 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ContactFormComponent } from './contact-form/contact-form.component';
-import { AddressformComponent } from './addressform/addressform.component';
+import { AddressFormComponent } from './address-form/address-form.component';
 import { BiilingComponent } from './biiling/biiling.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContactFormComponent,
-    AddressformComponent,
+    AddressFormComponent,
     BiilingComponent
 ],
   imports: [
