@@ -9,9 +9,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 export class AddressFormComponent implements OnInit {
   public mask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
-  address: FormGroup;
-  billingInformationData: FormGroup;
-  shippingInformationData: FormGroup;
+
+  registerForm: FormGroup;
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
@@ -19,20 +18,35 @@ export class AddressFormComponent implements OnInit {
   }
 
   initForm() {
-    this.address = this.fb.group({
+    this.registerForm = this.fb.group({
       'contact_information': this.fb.group({
         'first_name': ['', Validators.required],
         'last_name': ['', Validators.required],
         'email': ['', Validators.required],
         'phone': ['', Validators.required],
       }),
-      'billing_information': this.billingInformationData,
-      'shipping_information': this.shippingInformationData
+      'billing_address': this.initAddressForm(),
+      'shipping_address': this.initAddressForm()
+    });
+  }
+
+  initAddressForm() {
+    return this.fb.group({
+      name: ['', [Validators.required]],
+      address1: ['', [Validators.required]],
+      address2: ['', [Validators.required]],
+      city: ['', [Validators.required]],
+      state: ['', [Validators.required]],
+      zip: ['', [Validators.required]],
+      country: ['', [Validators.required]],
+      phone: ['', [Validators.required]],
+
+
     });
   }
 
   onSubmit() {
-    console.log(this.address);
+    console.log(this.registerForm);
   }
 
 }

@@ -1,5 +1,5 @@
 <div class="container p-5">
-  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <div [formGroup]="billingForm ">
     <div class="row">
       <div class="col-6">
         <li *ngFor="let form of form"></li>
@@ -76,5 +76,5 @@
           [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" id="inputphone" [textMask]="{mask: mask}">
       </div>
     </div>
-  </form>
+  </div>
 </div>

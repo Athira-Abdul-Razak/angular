@@ -1,6 +1,6 @@
 <div class="container">
    <h1 class="mt-2 mb-5">Contact Information</h1>
-   <form [formGroup]="address" (ngSubmit)="onSubmit()">
+   <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
       <div formGroupName="contact_information">
          <div class="row">
             <div class="col-6">
@@ -23,12 +23,12 @@
             </div>
          </div>
       </div>
-      <h1 class="mt-2 mb-5 ">Billing Address</h1>
-      <app-billing-form></app-billing-form>
-      <h1 class="mt-2 mb-5 ">Shipping Address</h1>
-      <app-billing-form></app-billing-form>
-      <div class="col-12">
+     <div class="col-12">
          <button type="submit" class="btn btn-primary">Submit</button>
       </div>
-   </form>
+   <h1>Billing Address</h1>
+   <app-billing-form RegisterFormValue="billing_address" ></app-billing-form>
+    <h1>Shipping Address</h1>
+    <app-billing-form></app-billing-form>
+    </form>
 </div>

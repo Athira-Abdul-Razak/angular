@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit, Output, EventEmitter, Input  } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-billing-form',
@@ -8,6 +8,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 
 export class BillingFormComponent implements OnInit {
+  @Input() RegisterFormValue: string;
+  forms:FormGroup;
+
   countryList = [
     { code: 'I', name: 'India' },
     { code: 'USA', name: 'United States Of America' }
@@ -19,27 +22,31 @@ export class BillingFormComponent implements OnInit {
   cityInfo: any[] = [];
   selectedCountry: any;
   public mask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
-  registerForm: FormGroup;
+  @Input() registerForm: FormGroup;
+  billingForm: FormGroup;
   submitted = false;
+  parent: any;
+  FormGroup: any;
+  fb: any;
 
   constructor(private formBuilder: FormBuilder) { }
 
   get f() { return this.registerForm.controls; }
 
-  @Input() form: [];
-  ngOnInit() {
-    this.registerForm = this.formBuilder.group({
-      name: ['', [Validators.required]],
-      address1: ['', [Validators.required]],
-      address2: ['', [Validators.required]],
-      city: ['', [Validators.required]],
-      state: ['', [Validators.required]],
-      zip: ['', [Validators.required]],
-      country: ['', [Validators.required]],
-      phone: ['', [Validators.required]],
-      website: ['', [Validators.required]],
+   form = '';
 
-    });
+  ngOnInit() {
+    this.forms = this.parent.forms;
+    if (this. RegisterFormValue) {
+      this.FormGroup = this.forms.get(this.RegisterFormValue) as FormGroup;
+    }
+
+    this.FormGroup.addControl('name',new FormControl('',Validators.required));
+    this.FormGroup.addControl('name',new FormControl('',Validators.required));
+    this.FormGroup.addControl('name',new FormControl('',Validators.required));
+    this.FormGroup.addControl('name',new FormControl('',Validators.required));
+    this.FormGroup.addControl('name',new FormControl('',Validators.required));
+
   }
 
   onSubmit() {
