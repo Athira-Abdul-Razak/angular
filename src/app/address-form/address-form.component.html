@@ -1,26 +1,34 @@
-<div>
-   <form [formGroup]="addressForm" (ngSubmit)="onSubmit()">
-      <div class="row">
-         <div class="col-6">
-   <label for="firstname">Firstname*</label>
-   <input type="text" id="firstname" formControlName="firstname" class="form-control">
-</div>
-<div class="col-6">
-   <label for="lastname">Lastname</label>
-   <input type="text" id="lastname" formControlName="lastname" class="form-control">
-</div>
-</div>
-<div class="row">
-   <div class="col-6">
-   <label for="email">Email*</label>
-   <input type="email" id="email" formControlName="email" class="form-control">
-</div>
-<div class="col-6">
-
-   <label for="phone">Phone</label>
-   <input type="number" id="Phone" formControlName="phone" class="form-control">
-</div>
-</div>
-
-</form>
+<div class="container">
+   <h1 class="mt-2 mb-5">Contact Information</h1>
+   <form [formGroup]="address" (ngSubmit)="onSubmit()">
+      <div formGroupName="contact_information">
+         <div class="row">
+            <div class="col-6">
+               <label for="firstname">Firstname*</label>
+               <input type="text" id="firstname" formControlName="first_name" class="form-control">
+            </div>
+            <div class="col-6">
+               <label for="lastname">Lastname</label>
+               <input type="text" id="lastname" formControlName="last_name" class="form-control">
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-6">
+               <label for="email">Email*</label>
+               <input type="email" id="email" formControlName="email" class="form-control">
+            </div>
+            <div class="col-6">
+               <label for="phone">Phone</label>
+               <input type="text" id="Phone" formControlName="phone" class="form-control" [textMask]="{mask: mask}">
+            </div>
+         </div>
+      </div>
+      <h1 class="mt-2 mb-5 ">Billing Address</h1>
+      <app-billing-form></app-billing-form>
+      <h1 class="mt-2 mb-5 ">Shipping Address</h1>
+      <app-billing-form></app-billing-form>
+      <div class="col-12">
+         <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+   </form>
 </div>
