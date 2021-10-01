@@ -23,12 +23,16 @@
             </div>
          </div>
       </div>
-     <div class="col-12">
+      <h1>Billing Address</h1>
+      <app-address-form [formGroup]="billingAddressForm"></app-address-form>
+      <h1>Shipping Address</h1>
+      <label>
+         <input type="checkbox" (change)="onCheckboxChange($event)" />
+         same as billing Address
+      </label>
+      <app-address-form *ngIf="shipping" [formGroup]="shippingAddressForm"></app-address-form>
+      <div class="col-12">
          <button type="submit" class="btn btn-primary">Submit</button>
       </div>
-   <h1>Billing Address</h1>
-   <app-billing-form RegisterFormValue="billing_address" ></app-billing-form>
-    <h1>Shipping Address</h1>
-    <app-billing-form></app-billing-form>
-    </form>
+   </form>
 </div>

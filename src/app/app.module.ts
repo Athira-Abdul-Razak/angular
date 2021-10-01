@@ -7,21 +7,16 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ContactFormComponent } from './contact-form/contact-form.component';
-import { AddressFormComponent } from './address-form/address-form.component';
-
-import { BillingFormComponent } from './address-form/billing-form/billing-form.component';
-
-import { ShippingFormComponent} from './address-form/shipping-form/shipping-form.component';
-
+import { RegisterFormComponent } from './address-form/register-form.component';
+import { AddressFormComponent } from './address-form/address-form/address-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContactFormComponent,
+    RegisterFormComponent,
     AddressFormComponent,
-    BillingFormComponent,
-    ShippingFormComponent
-    ],
+],
   imports: [
     BrowserModule,
     AppRoutingModule,
