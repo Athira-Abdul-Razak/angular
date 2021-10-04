@@ -2,7 +2,8 @@
   <div [formGroup]="formGroup">
     <div class="row">
       <div class="col-6">
-        <label for="name" class="form-label">Name <span style="color:#ff0000">*</span></label>
+        <label for="name" class="form-label">Name<small class="text-danger">*</small>
+        </label>
         <input type="text" formControlName="name" class="form-control"
           [ngClass]="{ 'is-invalid': submitted &&  formGroup.get('name').errors ||  formGroup.get('name').touched || formGroup.get('name').dirty}"
           id="name">
@@ -15,7 +16,7 @@
     </div>
     <div class="row">
       <div class="col-6">
-        <label for="address1" class="form-label">Address 1 <span style="color:#ff0000">*</span></label>
+        <label for="address1" class="form-label">Address 1<small class="text-danger">*</small></label>
         <input type="text" formControlName="address_1" class="form-control"
           [ngClass]="{ 'is-invalid': submitted && formGroup.get('address_1').errors ||  formGroup.get('address_1').touched || formGroup.get('address_1').dirty }"
           id="address1">
@@ -32,7 +33,7 @@
     </div>
     <div class="row">
       <div class="col-6">
-        <label for="City" class="form-label">City <span style="color:#ff0000">*</span></label>
+        <label for="City" class="form-label">City <small class="text-danger">*</small></label>
         <input type="text" formControlName="city" class="form-control"
           [ngClass]="{ 'is-invalid': submitted && formGroup.get('city').errors ||  formGroup.get('city').touched || formGroup.get('city').dirty}"
           id="City">
@@ -43,7 +44,7 @@
         </div>
       </div>
       <div class="col-md-6">
-        <label for="State" class="form-label">State <span style="color:#ff0000">*</span>
+        <label for="State" class="form-label">State<small class="text-danger">*</small>
         </label>
         <select class="form-control" formControlName="state" *ngIf="formGroup.get('country').value === 'USA'">
           <option>--Select a State--</option>
@@ -61,7 +62,7 @@
     </div>
     <div class="row">
       <div class="col-6">
-        <label for="Zip" class="form-label">Zip <span style="color:#ff0000">*</span></label>
+        <label for="Zip" class="form-label">Zip<small class="text-danger">*</small></label>
         <input type="text" formControlName="zip" class="form-control"
           [ngClass]="{ 'is-invalid': submitted &&  formGroup.get('zip').errors ||  formGroup.get('zip').touched || formGroup.get('zip').dirty }"
           id="Zip">
@@ -72,7 +73,7 @@
         </div>
       </div>
       <div class="col-6">
-        <label for="country" class="form-label">Country <span style="color:#ff0000">*</span></label>
+        <label for="country" class="form-label">Country<small class="text-danger">*</small></label>
         <select class="form-control" (change)="onChangeCountry($event)" formControlName="country"
           [ngClass]="{ 'is-invalid': submitted && formGroup.get('country').errors ||  formGroup.get('country').touched || formGroup.get('country').dirty}">
           <option selected>--Select Country--</option>

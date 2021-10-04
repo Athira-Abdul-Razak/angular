@@ -4,7 +4,7 @@
       <div formGroupName="contact_information">
          <div class="row">
             <div class="col-6">
-               <label for="firstname">FirstName <span style="color:#ff0000">*</span></label>
+               <label for="firstname">FirstName<small class="text-danger">*</small></label>
                <input type="text" id="firstname" formControlName="first_name" class="form-control">
                <div
                   *ngIf="registerForm.get(['contact_information', 'first_name']).invalid && (registerForm.get(['contact_information', 'first_name']).dirty || registerForm.get(['contact_information', 'first_name']).touched )  || submitted">
@@ -21,7 +21,7 @@
          </div>
          <div class="row">
             <div class="col-6">
-               <label for="email">Email <span style="color:#ff0000">*</span></label>
+               <label for="email">Email<small class="text-danger">*</small></label>
                <input type="email" id="email" formControlName="email" class="form-control">
                <div
                   *ngIf="registerForm.get(['contact_information', 'email']).invalid && (registerForm.get(['contact_information', 'email']).dirty || registerForm.get(['contact_information', 'email']).touched )  || submitted">
