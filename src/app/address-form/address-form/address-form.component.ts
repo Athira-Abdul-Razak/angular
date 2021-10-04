@@ -19,8 +19,8 @@ export class AddressFormComponent implements OnInit {
 
   selectedCountry: any;
   public mask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
-  submitted = false;
   @Input() formGroup: FormGroup;
+  @Input() submitted: boolean;
 
   constructor(private formBuilder: FormBuilder) { }
 
