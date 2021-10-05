@@ -8,7 +8,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 
 export class RegisterFormComponent implements OnInit {
-  submitted=false;
+  submitted = false;
   public mask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
   shipping = true;
   registerForm: FormGroup;
@@ -35,7 +35,7 @@ export class RegisterFormComponent implements OnInit {
     return this.fb.group({
       'name': ['', [Validators.required]],
       'address_1': ['', [Validators.required]],
-      'address_2': ['', ],
+      'address_2': ['',],
       'city': ['', [Validators.required]],
       'state': ['', [Validators.required]],
       'zip': ['', [Validators.required]],
@@ -62,7 +62,13 @@ export class RegisterFormComponent implements OnInit {
     }
   }
   onSubmit() {
-    this.submitted=true;
-    console.log(this.registerForm.value);
+    this.submitted = true;
+    if (!this.registerForm.valid) {
+      this.submitted = true;
+      console.log(this.registerForm.value);
+    }
+    else {
+      this.submitted = false;
+    }
   }
 }
