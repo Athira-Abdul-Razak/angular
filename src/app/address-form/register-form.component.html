@@ -7,7 +7,7 @@
                <label for="firstname">FirstName<small class="text-danger">*</small></label>
                <input type="text" id="firstname" formControlName="first_name" class="form-control">
                <div
-                  *ngIf="registerForm.get(['contact_information', 'first_name']).invalid && (registerForm.get(['contact_information', 'first_name']).dirty || registerForm.get(['contact_information', 'first_name']).touched )  || submitted">
+               *ngIf="registerForm.get(['contact_information', 'first_name']).invalid && (registerForm.get(['contact_information', 'first_name']).dirty  || registerForm.get(['contact_information', 'first_name']).touched )  || submitted">
                   <div *ngIf="registerForm.get(['contact_information', 'first_name']).errors?.required"
                      class="alert alert-danger">
                      Name is required.
