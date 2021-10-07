@@ -46,7 +46,7 @@
         <label for="State" class="form-label">State<small class="text-danger">*</small>
         </label>
         <select class="form-control" formControlName="state" *ngIf="formGroup.get('country').value === 'USA'">
-          <option>--Select a State--</option>
+          <option value="">--Select a State--</option>
           <option *ngFor="let state of stateList; let j = index" [value]="state.code">{{state.name}}</option>
         </select>
         <input id="State" type="text" class="form-control" formControlName="state" id="inputCity"
@@ -72,9 +72,8 @@
       </div>
       <div class="col-6">
         <label for="country" class="form-label">Country<small class="text-danger">*</small></label>
-        <select class="form-control" (change)="onChangeCountry($event)" formControlName="country"
-          [ngClass]="{ 'is-invalid':formGroup.get( 'country').errors && ( submitted ||   formGroup.get('country').touched || formGroup.get('country').dirty)}">
-          <option selected>--Select Country--</option>
+        <select class="form-control" (change)="onChangeCountry($event)" formControlName="country" [ngClass]="{ 'is-invalid':formGroup.get( 'country').errors && ( submitted ||   formGroup.get('country').touched || formGroup.get('country').dirty)}">
+          <option value="">--Select Country--</option>
           <option *ngFor="let country of countryList; let i = index" [value]="country.code">{{country.name}}</option>
         </select>
         <div

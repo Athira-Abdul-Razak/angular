@@ -9,6 +9,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { RegisterFormComponent } from './address-form/register-form.component';
 import { AddressFormComponent } from './address-form/address-form/address-form.component';
+import { ShippingComponent } from './shipping/shipping.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { AddressFormComponent } from './address-form/address-form/address-form.c
     ContactFormComponent,
     RegisterFormComponent,
     AddressFormComponent,
+    ShippingComponent,
 ],
   imports: [
     BrowserModule,
