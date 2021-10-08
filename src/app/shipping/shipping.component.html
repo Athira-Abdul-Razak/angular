@@ -3,15 +3,14 @@
         <div class="row">
             <div class="col-6">
                 <label for="ShippingMethod">Shipping Method: </label>
-                <select class="form-control" formControlName="shipping_method" (change)="onShippingMethodChange"
-                    [ngClass]="{ 'is-invalid':shippingForm.get( 'shipping_method').errors && ( submitted ||   shippingForm.get('shipping_method').touched || shippingForm.get('shipping_method').dirty)}">
+                <select class="form-control" formControlName="shipping_method" (change)="onShippingMethodChange()">
                     <option value="">--Select Method--</option>
                     <option *ngFor="let method of methodList; let i = index" [value]="method.code">{{method.name}}
                     </option>
                 </select>
-                <div class="invalid-feedback">
-                    please enter your shipping method
-                </div>
+                <app-validation [submitted]="submitted" name="Shipping Method"
+                    [control]="shippingForm.get('shipping_method')">
+                </app-validation>
             </div>
             <div class="col-6 ">
                 <div class="form-check">
@@ -19,15 +18,17 @@
                         (change)="onCheckboxChange($event)" formControlName="is_shipping_override">
                     <label class="form-check-label" for="customControlValidation1">Shipping Cost Override</label>
                 </div>
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">$</span>
-                    </div>
-                    <input type="number" class="form-control is-invalid" aria-label="Amount (to the nearest dollar)"
-                        formControlName="shipping_cost"
-                        [ngClass]="{ 'is-invalid':shippingForm.get( 'shipping_cost').errors && ( submitted ||   shippingForm.get('shipping_cost').touched || shippingForm.get('shipping_cost').dirty)}">
-                    <div class="invalid-feedback">
-                        please enter your shipping cost
+                <div class="row">
+                    <div class="col-6">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">$</span>
+                            </div>
+                            <input type="number" class="form-control" formControlName="shipping_cost">
+                            <app-validation [control]="shippingForm.get('shipping_cost')" name="Shipping cost"
+                                [submitted]="submitted">
+                            </app-validation>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -37,14 +38,15 @@
                 <div *ngIf="shippingForm.get('shipping_method').value === 'UGTP'">
                     <label for=" shippingAccountNumber"> Shipping Account Number: </label>
                     <input id=" shippingAccountNumber" type="text" class="form-control"
-                        formControlName="shipping_account_number"
-                        [ngClass]="{ 'is-invalid':shippingForm.get( 'shipping_account_number').errors && ( submitted ||   shippingForm.get('shipping_account_number').touched || shippingForm.get('shipping_account_number').dirty)}">
-                    <div class="invalid-feedback">
-                        please enter your account number
-                    </div>
+                        formControlName="shipping_account_number">
+                    <app-validation [control]="shippingForm.get('shipping_account_number')"
+                        name="Shipping Account Number" [submitted]="submitted">
+                    </app-validation>
                 </div>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary"><i class="fas fa-trash-alt"></i>Submit</button>
+        <div>
+            <button type="submit" class="btn btn-primary"><i class="fas fa-trash-alt"></i>Submit</button>
+        </div>
     </form>
 </div>

@@ -9,7 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 export class ShippingComponent implements OnInit {
   shippingForm: FormGroup;
-  submitted = false;
+  submitted: boolean;
   methodList = [
     { code: 'UGTP', name: 'UPS Ground Third Party' },
     { code: 'UG', name: 'UPS Ground' }
@@ -25,7 +25,7 @@ export class ShippingComponent implements OnInit {
     this.shippingForm = this.fb.group({
       'shipping_method': ['', Validators.required],
       'shipping_cost': ['', Validators.required],
-      'shipping_account_number': ['', Validators.required],
+      'shipping_account_number': [{ value: '', disabled: true }, Validators.required],
       'is_shipping_override': [false,]
     });
   }
@@ -53,4 +53,5 @@ export class ShippingComponent implements OnInit {
     }
 
   }
+
 }

@@ -10,6 +10,7 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
 import { RegisterFormComponent } from './address-form/register-form.component';
 import { AddressFormComponent } from './address-form/address-form/address-form.component';
 import { ShippingComponent } from './shipping/shipping.component';
+import { ValidationComponent } from './validation/validation.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ShippingComponent } from './shipping/shipping.component';
     RegisterFormComponent,
     AddressFormComponent,
     ShippingComponent,
+    ValidationComponent,
 ],
   imports: [
     BrowserModule,
