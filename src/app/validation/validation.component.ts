@@ -3,8 +3,9 @@ import { AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-validation',
-  templateUrl: './validation.component.html',
-  styleUrls: ['./validation.component.css']
+  template: `<li *ngIf="control.invalid && (control.dirty || control.touched  || submitted)" class="text-danger">
+  please enter your {{name}}.
+</li>`
 })
 export class ValidationComponent implements OnInit {
   @Input() control: AbstractControl;
@@ -21,3 +22,5 @@ export class ValidationComponent implements OnInit {
   }
 
 }
+// './validation.component.html',
+  // styleUrls: ['./validation.component.css']
