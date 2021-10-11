@@ -3,8 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-shipping',
-  templateUrl: './shipping.component.html',
-  styleUrls: ['./shipping.component.css']
+  templateUrl: './shipping.component.html'
 })
 
 export class ShippingComponent implements OnInit {
