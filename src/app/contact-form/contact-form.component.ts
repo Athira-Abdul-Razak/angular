@@ -10,6 +10,7 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class ContactFormComponent implements OnInit {
   public mask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
   contactForm: FormGroup;
+  submitted: boolean;
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
@@ -44,6 +45,7 @@ export class ContactFormComponent implements OnInit {
   }
 
   onSubmit() {
+    this.submitted=true;
     console.log(this.contactForm.value);
   }
 

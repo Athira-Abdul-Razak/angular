@@ -12,6 +12,7 @@ export class RegisterFormComponent implements OnInit {
   public mask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
   shipping = true;
   registerForm: FormGroup;
+
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
@@ -61,6 +62,7 @@ export class RegisterFormComponent implements OnInit {
       this.shippingAddressForm.reset();
     }
   }
+
   onSubmit() {
     this.submitted = true;
     if (!this.registerForm.valid) {

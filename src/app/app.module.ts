@@ -11,6 +11,7 @@ import { RegisterFormComponent } from './address-form/register-form.component';
 import { AddressFormComponent } from './address-form/address-form/address-form.component';
 import { ShippingComponent } from './shipping/shipping.component';
 import { ValidationComponent } from './validation/validation.component';
+import { ValidationDirective } from './validation.directive';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ValidationComponent } from './validation/validation.component';
     AddressFormComponent,
     ShippingComponent,
     ValidationComponent,
+    ValidationDirective,
 ],
   imports: [
     BrowserModule,

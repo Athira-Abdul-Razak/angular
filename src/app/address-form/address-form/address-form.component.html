@@ -4,27 +4,16 @@
       <div class="col-6">
         <label for="name" class="form-label">Name<small class="text-danger">*</small>
         </label>
-        <input type="text" formControlName="name" class="form-control is-invalid" id="name"
-          [ngClass]="{ 'is-invalid':  formGroup.get('name').errors &&  (submitted || formGroup.get('name').touched || formGroup.get('name').dirty)}"
-          required>
-        <div
-          *ngIf="formGroup.get( 'name').invalid && (formGroup.get('name').dirty || formGroup.get('name').touched || submitted )"
-          class="invalid-feedback">
-          please enter your name
-        </div>
+        <input type="text" formControlName="name" class="form-control" id="name" appValidation required>
+        <app-validation name="Name" [submitted]="submitted" [control]="formGroup.get('name')"></app-validation>
       </div>
     </div>
     <div class="row">
       <div class="col-6">
         <label for="address1" class="form-label">Address 1<small class="text-danger">*</small></label>
-        <input type="text" formControlName="address_1" class="form-control" id="address1"
-          [ngClass]="{ 'is-invalid': formGroup.get('address_1').errors && ( submitted || formGroup.get('address_1').touched || formGroup.get('address_1').dirty)}"
-          required>
-        <div
-          *ngIf="formGroup.get( 'address_1').invalid && (formGroup.get('address_1').dirty || formGroup.get( 'address_1').touched || submitted )"
-          class="invalid-feedback">
-          please enter your address
-        </div>
+        <input type="text" formControlName="address_1" class="form-control" id="address1" appValidation required>
+        <app-validation name="Address 1" [submitted]="submitted" [control]="formGroup.get('address_1')">
+        </app-validation>
       </div>
       <div class="col-6">
         <label for="Address2" class="form-label">Address 2 </label>
@@ -34,13 +23,8 @@
     <div class="row">
       <div class="col-6">
         <label for="City" class="form-label">City <small class="text-danger">*</small></label>
-        <input type="text" formControlName="city" class="form-control" id="City"
-          [ngClass]="{ 'is-invalid': formGroup.get('city').errors && ( submitted || formGroup.get('city').touched || formGroup.get('city').dirty)}">
-        <div
-          *ngIf="formGroup.get( 'city').invalid && (formGroup.get('city').dirty || formGroup.get( 'city').touched || submitted )"
-          class="invalid-feedback">
-          please enter your city
-        </div>
+        <input type="text" formControlName="city" class="form-control" id="City" appValidation>
+        <app-validation name="City" [submitted]="submitted" [control]="formGroup.get('city')"></app-validation>
       </div>
       <div class="col-6">
         <label for="State" class="form-label">State<small class="text-danger">*</small>
@@ -50,37 +34,23 @@
           <option *ngFor="let state of stateList; let j = index" [value]="state.code">{{state.name}}</option>
         </select>
         <input id="State" type="text" class="form-control" formControlName="state" id="inputCity"
-          *ngIf="formGroup.get('country').value !== 'USA'"
-          [ngClass]="{ 'is-invalid': formGroup.get( 'state').errors && ( submitted ||  formGroup.get('state').touched || formGroup.get('state').dirty)}">
-        <div
-          *ngIf="formGroup.get( 'state').invalid && (formGroup.get('state').dirty || formGroup.get( 'state').touched || submitted )"
-          class="invalid-feedback">
-          please enter your state
-        </div>
+          *ngIf="formGroup.get('country').value !== 'USA'" appValidation>
+        <app-validation name="State" [submitted]="submitted" [control]="formGroup.get('state')"></app-validation>
       </div>
     </div>
     <div class="row">
       <div class="col-6">
         <label for="Zip" class="form-label">Zip<small class="text-danger">*</small></label>
-        <input type="text" formControlName="zip" class="form-control" id="Zip"
-          [ngClass]="{ 'is-invalid': formGroup.get( 'zip').errors && ( submitted ||  formGroup.get('address_1').touched || formGroup.get('address_1').dirty)}">
-        <div
-          *ngIf="formGroup.get( 'zip').invalid && (formGroup.get('zip').dirty || formGroup.get( 'zip').touched || submitted )  "
-          class="invalid-feedback">
-          please enter your zip
-        </div>
+        <input type="text" formControlName="zip" class="form-control" id="Zip" appValidation>
+        <app-validation name="Zip" [submitted]="submitted" [control]="formGroup.get('zip')"></app-validation>
       </div>
       <div class="col-6">
         <label for="country" class="form-label">Country<small class="text-danger">*</small></label>
-        <select class="form-control" (change)="onChangeCountry($event)" formControlName="country" [ngClass]="{ 'is-invalid':formGroup.get( 'country').errors && ( submitted ||   formGroup.get('country').touched || formGroup.get('country').dirty)}">
+        <select class="form-control" (change)="onChangeCountry($event)" formControlName="country">
           <option value="">--Select Country--</option>
           <option *ngFor="let country of countryList; let i = index" [value]="country.code">{{country.name}}</option>
         </select>
-        <div
-          *ngIf="formGroup.get( 'country').invalid && (formGroup.get('country').dirty || formGroup.get( 'country').touched || submitted )"
-          class="invalid-feedback">
-          please enter your country
-        </div>
+        <app-validation name="Country" [submitted]="submitted" [control]="formGroup.get('country')"></app-validation>
       </div>
     </div>
     <div class="row">

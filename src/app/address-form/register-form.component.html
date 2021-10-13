@@ -5,14 +5,11 @@
          <div class="row">
             <div class="col-6">
                <label for="firstname">FirstName<small class="text-danger">*</small></label>
-               <input type="text" id="firstname" formControlName="first_name" class="form-control is-invalid"
-                  [ngClass]="{ 'is-invalid': registerForm.get(['contact_information', 'first_name']).errors && (registerForm.get(['contact_information', 'first_name']).dirty  || registerForm.get(['contact_information', 'first_name']).touched  || submitted )}"
+               <input type="text" id="firstname" formControlName="first_name" class="form-control" appValidation
                   required>
-               <div
-                  *ngIf="registerForm.get(['contact_information', 'first_name']).invalid && (registerForm.get(['contact_information', 'first_name']).dirty  || registerForm.get(['contact_information', 'first_name']).touched  || submitted ) "
-                  class="invalid-feedback">
-                  Name is required.
-               </div>
+               <app-validation [submitted]="submitted" name="FirstName"
+                  [control]="registerForm.get(['contact_information','first_name'])">
+               </app-validation>
             </div>
             <div class="col-6">
                <label for="lastname">LastName</label>
@@ -22,13 +19,10 @@
          <div class="row">
             <div class="col-6">
                <label for="email">Email<small class="text-danger">*</small></label>
-               <input type="email" id="email" formControlName="email" class="form-control is-invalid"
-                  [ngClass]="{ 'is-invalid': registerForm.get(['contact_information', 'email']).errors && (registerForm.get(['contact_information', 'email']).dirty  || registerForm.get(['contact_information', 'email']).touched  || submitted )}">
-               <div
-                  *ngIf="registerForm.get(['contact_information', 'email']).invalid && (registerForm.get(['contact_information', 'email']).dirty || registerForm.get(['contact_information', 'email']).touched )  || submitted"
-                  class="invalid-feedback">
-                  Email is required.
-               </div>
+               <input type="email" id="email" formControlName="email" class="form-control" appValidation>
+               <app-validation [submitted]="submitted" name="Email"
+                  [control]="registerForm.get(['contact_information','email'])">
+               </app-validation>
             </div>
             <div class="col-6">
                <label for="phone">Phone</label>
