@@ -9,6 +9,7 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 export class ContactFormComponent implements OnInit {
   public mask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
+  phonePattern = /^\(?([0-9]{3})\)[ ]?([0-9]{3})[-]?([0-9]{4})([ ][xX][0-9]{5})?$/;
   contactForm: FormGroup;
   submitted: boolean;
   constructor(private fb: FormBuilder) { }
@@ -40,7 +41,7 @@ export class ContactFormComponent implements OnInit {
       firstName: ['', Validators.required],
       lastName: [''],
       email: ['', [Validators.required, Validators.email]],
-      phone: ['', [Validators.required]],
+      phone: ['', [Validators.required, Validators.pattern(this.phonePattern)]],
     });
   }
 
@@ -48,5 +49,4 @@ export class ContactFormComponent implements OnInit {
     this.submitted=true;
     console.log(this.contactForm.value);
   }
-
 }

@@ -4,9 +4,11 @@ import { AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-validation',
-  template: `<li *ngIf="control.invalid && (control.dirty || control.touched  || submitted)" class="text-danger">
+  template: `<li *ngIf="control.invalid && (control.dirty || control.touched || submitted)" class="text-danger">
    {{name}} is required.
-</li> `
+</li>
+<li *ngIf="control.errors?.email  && (control.dirty || control.touched || submitted)" class="text-danger"> Enter a valid {{name}} address.</li>
+<li *ngIf="control.errors?.pattern  && (control.dirty || control.touched || submitted)" class="text-danger"> Enter a valid {{name}}.</li>`
 })
 
 export class ValidationComponent {
@@ -14,5 +16,5 @@ export class ValidationComponent {
   @Input() submitted: boolean;
   @Input() name: string;
 
- constructor() { }
+  constructor() { }
 }

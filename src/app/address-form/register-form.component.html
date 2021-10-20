@@ -4,7 +4,7 @@
       <div formGroupName="contact_information">
          <div class="row">
             <div class="col-6">
-               <label for="firstname">FirstName<small class="text-danger">*</small></label>
+               <label for="firstname">First Name<small class="text-danger">*</small></label>
                <input type="text" id="firstname" formControlName="first_name" class="form-control"
                   [appValidation]="submitted" required>
                <app-validation [submitted]="submitted" name="FirstName"
@@ -12,7 +12,7 @@
                </app-validation>
             </div>
             <div class="col-6">
-               <label for="lastname">LastName</label>
+               <label for="lastname">Last Name</label>
                <input type="text" id="lastname" formControlName="last_name" class="form-control">
             </div>
          </div>
@@ -27,6 +27,7 @@
             <div class="col-6">
                <label for="phone">Phone</label>
                <input type="text" id="Phone" formControlName="phone" class="form-control" [textMask]="{mask: mask}">
+               <app-validation name="Phone" [submitted]="submitted" [control]="registerForm.get(['contact_information','phone'])"></app-validation>
             </div>
          </div>
       </div>

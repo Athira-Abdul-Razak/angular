@@ -38,8 +38,8 @@
               <div class="col-6">
                 <label for="{{'phone'+i}}">Phone: </label>
                 <input class="form-control" formControlName='phone' id="{{'phone'+i}}" type="text"
-                  [textMask]="{mask: mask}" ng-model="phone" />
-                <span *ngIf="!t.get('phone').valid && t.get('phone').touched">enter phone number</span>
+                  [textMask]="{mask: mask}" />
+                  <app-validation name="Phone" [submitted]="submitted" [control]="t.get('phone')"></app-validation>
               </div>
             </div>
             <div>
