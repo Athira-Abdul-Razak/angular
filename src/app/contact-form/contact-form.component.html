@@ -19,7 +19,7 @@
               <div class="col-6">
                 <label for="{{'firstName'+i}}">First Name:* </label>
                 <input class="form-control" formControlName='firstName' id="{{'firstName'+i}}" type="text"
-                  appValidation />
+                  [appValidation]="submitted" />
                 <app-validation name="First Name" [submitted]="submitted" [control]="t.get('firstName')">
                 </app-validation>
               </div>
@@ -31,7 +31,8 @@
             <div class="row">
               <div class="col-6">
                 <label for="{{'email'+i}}">Email:* </label>
-                <input class="form-control" formControlName='email' id="{{'email'+i}}" type="text" appValidation />
+                <input class="form-control" formControlName='email' id="{{'email'+i}}" type="text"
+                  [appValidation]="submitted" />
                 <app-validation name="Email" [submitted]="submitted" [control]="t.get('email')"></app-validation>
               </div>
               <div class="col-6">

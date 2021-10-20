@@ -14,6 +14,5 @@ export class ValidationComponent {
   @Input() submitted: boolean;
   @Input() name: string;
 
-
-  constructor() { }
+ constructor() { }
 }
