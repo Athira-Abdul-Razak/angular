@@ -12,6 +12,8 @@ import { AddressFormComponent } from './address-form/address-form/address-form.c
 import { ShippingComponent } from './shipping/shipping.component';
 import { ValidationComponent } from './validation/validation.component';
 import { ValidationDirective } from './validation.directive';
+import { LoginFormComponent } from './login-form/login-form.component';
+// import { CustomValidation } from './custom-validation/custom-validation.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { ValidationDirective } from './validation.directive';
     ShippingComponent,
     ValidationComponent,
     ValidationDirective,
+    LoginFormComponent,
+    // CustomValidation,
 ],
   imports: [
     BrowserModule,
