@@ -13,7 +13,7 @@ import { ShippingComponent } from './shipping/shipping.component';
 import { ValidationComponent } from './validation/validation.component';
 import { ValidationDirective } from './validation.directive';
 import { LoginFormComponent } from './login-form/login-form.component';
-// import { CustomValidation } from './custom-validation/custom-validation.component';
+import { CustomValidation } from './custom-validation/custom-validation.component';
 
 @NgModule({
   declarations: [

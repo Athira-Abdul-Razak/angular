@@ -3,13 +3,19 @@
         <div>
             <label for="Email">Email:</label>
             <input type="email" class="form-control" formControlName="Email">
-            <div *ngIf="Email.errors?.emailValid">
+            <div *ngIf="Email.errors?.invalidEmail" class="text-danger">
                 <sup>*</sup>Enter a valid email address
+            </div>
+            <div *ngIf="Email.invalid && (Email.dirty || Email.touched || submitted)" class="text-danger">
+                Email is required.
             </div>
         </div>
         <div>
             <label for="Username">Username:</label>
             <input class="form-control" type="text" formControlName="Username">
+            <div *ngIf="Username.errors?.invalidUserName" class="text-danger">
+                <sup>*</sup>username cannot contain spaces
+            </div>
         </div>
         <div>
             <label for="Password"> Password: </label>
