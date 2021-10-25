@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-import { CustomValidation } from '../shared/custom-validator/custom-validator.component';
+import { CustomValidation } from '../shared/custom-validator/custom-validator';
 
 @Component({
   selector: 'app-login-form',
