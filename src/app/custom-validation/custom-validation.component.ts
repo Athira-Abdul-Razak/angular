@@ -11,7 +11,7 @@ export class CustomValidation {
         }
     }
 
-    static invalidUserName(control: AbstractControl) {
+    static noWhiteSpace(control: AbstractControl) {
         if ((control.value as string).indexOf(' ') >= 0) {
             return { invalidUserName: true };
         }

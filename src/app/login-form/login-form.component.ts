@@ -21,22 +21,17 @@ export class LoginFormComponent implements OnInit {
   createForm() {
     this.loginForm = this.fb.group({
       'Email': ['', [Validators.required, CustomValidation.emailValidator]],
-      'Username': ['', [Validators.required, CustomValidation.invalidUserName]],
+      'Username': ['', [Validators.required, CustomValidation.noWhiteSpace]],
       'Password': ['', Validators.required],
     });
   }
 
-  get Email() {
-    return this.loginForm.get('Email');
-  }
-
-  get Username() {
-    return this.loginForm.get('Username');
-  }
-
   onSubmit() {
     this.submitted = true;
-    console.log(this.loginForm.value);
+    console.log(this.loginForm);
+    if (this.loginForm.valid) {
+      console.log(this.loginForm.value);
+    }
   }
 
 }
