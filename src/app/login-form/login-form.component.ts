@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-import { CustomValidation } from '../custom-validation/custom-validation.component';
+import { CustomValidation } from '../shared/custom-validator/custom-validator.component';
 
 @Component({
   selector: 'app-login-form',
@@ -28,7 +28,6 @@ export class LoginFormComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    console.log(this.loginForm);
     if (this.loginForm.valid) {
       console.log(this.loginForm.value);
     }

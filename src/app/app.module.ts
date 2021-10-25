@@ -10,9 +10,10 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
 import { RegisterFormComponent } from './address-form/register-form.component';
 import { AddressFormComponent } from './address-form/address-form/address-form.component';
 import { ShippingComponent } from './shipping/shipping.component';
-import { ValidationComponent } from './validation/validation.component';
+import { ValidationComponent } from './shared/app-validation/app-validation.component';
 import { ValidationDirective } from './validation.directive';
 import { LoginFormComponent } from './login-form/login-form.component';
+
 
 @NgModule({
   declarations: [
