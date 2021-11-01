@@ -13,6 +13,8 @@ import { ShippingComponent } from './shipping/shipping.component';
 import { ValidationComponent } from './shared/app-validation/app-validation.component';
 import { ValidationDirective } from './validation.directive';
 import { LoginFormComponent } from './login-form/login-form.component';
+import { BookFormComponent } from './book/book-form/book-form.component';
+import { BookTableComponent } from './book/book-table/book-table.component';
 
 
 @NgModule({
@@ -25,6 +27,8 @@ import { LoginFormComponent } from './login-form/login-form.component';
     ValidationComponent,
     ValidationDirective,
     LoginFormComponent,
+    BookFormComponent,
+    BookTableComponent,
 
 ],
   imports: [

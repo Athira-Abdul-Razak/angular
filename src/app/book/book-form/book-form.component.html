@@ -1,0 +1,28 @@
+<form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="Title">Title</label>
+    <input id="Title" class="form-control" formControlName="title" [appValidation]="submitted">
+    <app-validation [submitted]="submitted" name="Title" [control]="bookForm.get('title')">
+    </app-validation>
+    <label for="Author">Author</label>
+    <input id="Author" class="form-control" formControlName="author" [appValidation]="submitted">
+    <app-validation [submitted]="submitted" name="author" [control]="bookForm.get('author')">
+    </app-validation>
+    <label for="Publisher">Publisher</label>
+    <input id="Publisher" class="form-control" formControlName="publisher" [appValidation]="submitted">
+    <app-validation [submitted]="submitted" name="publisher" [control]="bookForm.get('publisher')">
+    </app-validation>
+    <label for="Genre">Genre</label>
+    <input id="Genre" class="form-control" formControlName="genre" [appValidation]="submitted">
+    <app-validation [submitted]="submitted" name="genre" [control]="bookForm.get('genre')">
+    </app-validation>
+    <label for="Genre">Price</label>
+    <input id="Price" class="form-control" formControlName="price" [appValidation]="submitted">
+    <app-validation [submitted]="submitted" name="price" [control]="bookForm.get('price')">
+    </app-validation>
+  </div>
+  <div class="d-flex">
+    <button type="submit" class="btn btn-success">{{popupName}}</button>
+    <button type="button" class="btn btn-light" (click)="cancel()">Cancel</button>
+  </div>
+</form>
