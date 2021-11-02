@@ -34,11 +34,8 @@ export class BookFormComponent implements OnChanges {
   onSubmit() {
     if (this.bookForm.valid) {
       this.updateBookForm.emit(this.bookForm.value);
-      this.bookForm.reset();
-
     } else {
       this.submitted = true;
-      this.bookForm.reset();
     }
   }
 
