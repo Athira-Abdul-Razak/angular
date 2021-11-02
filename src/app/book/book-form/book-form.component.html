@@ -17,7 +17,7 @@
     <app-validation [submitted]="submitted" name="genre" [control]="bookForm.get('genre')">
     </app-validation>
     <label for="Genre">Price</label>
-    <input id="Price" class="form-control" formControlName="price" [appValidation]="submitted">
+    <input id="Price" type="number" class="form-control" formControlName="price" [appValidation]="submitted">
     <app-validation [submitted]="submitted" name="price" [control]="bookForm.get('price')">
     </app-validation>
   </div>

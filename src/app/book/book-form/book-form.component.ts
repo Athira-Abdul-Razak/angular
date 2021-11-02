@@ -27,7 +27,6 @@ export class BookFormComponent implements OnChanges {
   }
 
   ngOnChanges() {
-    console.log(this.popupName, 'HI');
     if (this.row) {
       this.bookForm.setValue(this.row);
     }
@@ -46,10 +45,6 @@ export class BookFormComponent implements OnChanges {
 
   cancel() {
     this.cancelEvent.emit(true);
-  }
-
-  update() {
-    this.updateEvent.emit(true);
   }
 
 }

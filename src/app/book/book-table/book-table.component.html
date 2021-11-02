@@ -1,0 +1,48 @@
+<nav class="navbar navbar-light bg-primary">
+    <div class="container-fluid">
+        <h1 style="color: aliceblue;">Book Store</h1>
+        <div class="d-flex">
+            <button class="btn btn-success" type="button" data-toggle="modal" data-target="#exampleModal"
+                (click)="open(content)">+Add New Book</button>
+        </div>
+    </div>
+</nav>
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Author</th>
+            <th scope="col">Publisher</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Price</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of ItemsArray; let i=index">
+            <td><span>{{item.title}}</span></td>
+            <td><span>{{item.author}}</span></td>
+            <td><span>{{item.publisher}}</span></td>
+            <td><span>{{item.genre}}</span></td>
+            <td><span>{{item.price}}</span></td>
+            <td>
+                <i class="fa fa-pencil mr-4" aria-hidden="true" (click)="onEdit(item,content)"></i>
+                <i class="fa fa-trash-o" aria-hidden="true" (click)="clickMethod('book',i)"></i>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">{{popupName}}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <app-book-form (updateBookForm)="onSubmit($event)" [popupName]="popupName" [row]="selectedItem"
+            (cancelEvent)="modal.dismiss('Cross click')"></app-book-form>
+    </div>
+    <div class="modal-footer">
+    </div>
+</ng-template>
