@@ -8,23 +8,20 @@ import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 
 export class BookTableComponent {
-  ItemsArray: any;
-  closeResult: string;
+  bookList: any;
+  closePopup: string;
   selectedItem: any;
-  item: any;
-  popupName: string;
-  openPopup: boolean;
+  titleName: string;
   submitted: boolean;
   content: any;
 
   open(content: any) {
     this.selectedItem = null;
-    this.openPopup = true;
-    this.popupName = 'Add Book';
+    this.titleName = 'Add Book';
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
+      this.closePopup = `Closed with: ${result}`;
     }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      this.closePopup = `Dismissed ${this.getDismissReason(reason)}`;
     });
   }
 
@@ -38,31 +35,30 @@ export class BookTableComponent {
     }
   }
 
-  constructor(private modalService: NgbModal) { this.ItemsArray = []; }
+  constructor(private modalService: NgbModal) { this.bookList = []; }
 
   onSubmit(value: any) {
     this.submitted = true;
     if (this.selectedItem) {
-      let index = this.ItemsArray.indexOf(this.selectedItem);
-      this.ItemsArray[index] = value;
+      let index = this.bookList.indexOf(this.selectedItem);
+      this.bookList[index] = value;
       this.modalService.dismissAll();
     } else {
-      this.ItemsArray.push(value);
-      console.log(this.ItemsArray);
+      this.bookList.push(value);
+      console.log(this.bookList);
       this.modalService.dismissAll();
     }
   }
 
   onEdit(item: any, content: any) {
-    this.openPopup = true;
     this.open(content);
     this.selectedItem = item;
-    this.popupName = 'Edit Book';
+    this.titleName = 'Update Book';
   }
 
   clickMethod(book: string, index: number) {
     if (confirm('Are you sure to delete ' + book)) {
-      this.ItemsArray.splice(index, 1);
+      this.bookList.splice(index, 1);
     }
   }
 

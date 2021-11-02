@@ -10,9 +10,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class BookFormComponent implements OnChanges {
   @Output() updateBookForm = new EventEmitter<any>();
   @Output() cancelEvent = new EventEmitter<any>();
-  @Output() updateEvent = new EventEmitter<any>();
   @Input() row: any;
-  @Input() popupName: string;
+  @Input() titleName: string;
   submitted: boolean;
   bookForm: FormGroup;
 
