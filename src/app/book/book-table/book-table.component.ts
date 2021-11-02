@@ -15,12 +15,16 @@ export class BookTableComponent {
   submitted: boolean;
   content: any;
 
-  open(content: any) {
+  onAdd(content: any) {
     this.selectedItem = null;
     this.titleName = 'Add Book';
-    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
+    this.showPopup(content);
+  }
+
+  showPopup(content: any) {
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result: any) => {
       this.closePopup = `Closed with: ${result}`;
-    }, (reason) => {
+    }, (reason: any) => {
       this.closePopup = `Dismissed ${this.getDismissReason(reason)}`;
     });
   }
@@ -51,7 +55,7 @@ export class BookTableComponent {
   }
 
   onEdit(item: any, content: any) {
-    this.open(content);
+    this.showPopup(content);
     this.selectedItem = item;
     this.titleName = 'Update Book';
   }

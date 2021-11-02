@@ -10,7 +10,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class BookFormComponent implements OnChanges {
   @Output() updateBookForm = new EventEmitter<any>();
   @Output() cancelEvent = new EventEmitter<any>();
-  @Input() row: any;
+  @Input() bookValue: any;
   @Input() titleName: string;
   submitted: boolean;
   bookForm: FormGroup;
@@ -26,8 +26,8 @@ export class BookFormComponent implements OnChanges {
   }
 
   ngOnChanges() {
-    if (this.row) {
-      this.bookForm.setValue(this.row);
+    if (this.bookValue) {
+      this.bookForm.setValue(this.bookValue);
     }
   }
 
