@@ -15,6 +15,7 @@ import { ValidationDirective } from './validation.directive';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { BookFormComponent } from './book/book-form/book-form.component';
 import { BookTableComponent } from './book/book-table/book-table.component';
+import { PricePipe } from './pipes/price.pipe';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { BookTableComponent } from './book/book-table/book-table.component';
     LoginFormComponent,
     BookFormComponent,
     BookTableComponent,
+    PricePipe,
 
 ],
   imports: [
