@@ -39,7 +39,7 @@ import { PricePipe } from './pipes/price.pipe';
     FormsModule, ReactiveFormsModule, NgbModule,
     TextMaskModule,NgSelectModule
     ],
-  providers: [],
+  providers: [PricePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
