@@ -24,7 +24,7 @@
             <td><span>{{item.author}}</span></td>
             <td><span>{{item.publisher}}</span></td>
             <td><span>{{item.genre}}</span></td>
-            <td><span>{{item.price | price}}</span></td>
+            <td><span>{{item.price | price | currency}}</span></td>
             <td>
                 <i class="fa fa-pencil mr-4" (click)="onEdit(item,content)"></i>
                 <i class="fa fa-trash-o" (click)="clickMethod('book',i)"></i>
