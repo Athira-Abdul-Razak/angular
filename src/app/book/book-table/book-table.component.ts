@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { PricePipe } from 'src/app/pipes/price.pipe';
 @Component({
   selector: 'app-book-table',
   templateUrl: './book-table.component.html',
@@ -40,19 +39,16 @@ export class BookTableComponent {
     }
   }
 
-  constructor(private modalService: NgbModal, private pricePipe: PricePipe) { this.bookList = []; }
-
+  constructor(private modalService: NgbModal) { this.bookList = []; }
 
   onSubmit(value: any) {
     this.submitted = true;
     if (this.selectedItem) {
       let index = this.bookList.indexOf(this.selectedItem);
-      value.price = this.pricePipe.transform(value.price);
       this.bookList[index] = value;
       this.modalService.dismissAll();
     } else {
       this.bookList.push(value);
-      value.price = this.pricePipe.transform(value.price);
       console.log(this.bookList);
       this.modalService.dismissAll();
     }

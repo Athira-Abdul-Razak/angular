@@ -1,5 +1,7 @@
 import { Component, Output, EventEmitter, Input, OnChanges } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { PricePipe } from 'src/app/pipes/price.pipe';
+
 
 @Component({
   selector: 'app-book-form',
@@ -15,7 +17,7 @@ export class BookFormComponent implements OnChanges {
   submitted: boolean;
   bookForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private pricePipe: PricePipe) {
     this.bookForm = this.formBuilder.group({
       'title': ['', [Validators.required]],
       'author': ['', Validators.required],
@@ -33,6 +35,7 @@ export class BookFormComponent implements OnChanges {
 
   onSubmit() {
     if (this.bookForm.valid) {
+      this.bookForm.get('price').setValue(this.pricePipe.transform(this.bookForm.get('price').value));
       this.updateBookForm.emit(this.bookForm.value);
     } else {
       this.submitted = true;
@@ -42,5 +45,4 @@ export class BookFormComponent implements OnChanges {
   cancel() {
     this.cancelEvent.emit(true);
   }
-
 }
