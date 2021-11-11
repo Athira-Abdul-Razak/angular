@@ -1,0 +1,60 @@
+<div class="container">
+  <form [formGroup]="streetForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-6">
+        <label for="street-address" class="form-label">Street-Address<small class="text-danger">*</small>
+        </label>
+        <input type="text" formControlName="street-address" class="form-control" id="name" [appValidation]="submitted"
+          required>
+        <app-validation name="Street-Address" [submitted]="submitted" [control]="streetForm.get('street-address')">
+        </app-validation>
+      </div>
+      <div class="col-6">
+        <label for="street-address-2" class="form-label">street-address-2<small class="text-danger">*</small></label>
+        <input type="text" formControlName="street-address-2" class="form-control" id="address1"
+          [appValidation]="submitted" required>
+        <app-validation name=" street-address-2" [submitted]="submitted" [control]="streetForm.get('street-address-2')">
+        </app-validation>
+      </div>
+    </div>
+    <div class="row">
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <label for="City" class="form-label">City <small class="text-danger">*</small></label>
+        <input type="text" formControlName="city" class="form-control" id="City" [appValidation]="submitted">
+        <app-validation name="City" [submitted]="submitted" [control]="streetForm.get('city')"></app-validation>
+      </div>
+      <div class="col-6">
+        <label for="State" class="form-label">State<small class="text-danger">*</small>
+        </label>
+        <select class="form-control" formControlName="state" *ngIf="streetForm.get('country').value === 'USA'">
+          <option value="">--Select a State--</option>
+          <!-- <option *ngFor="let state of stateList; let j = index" [value]="state.code">{{state.name}}</option> -->
+          -->
+        </select>
+        <input id="State" type="text" class="form-control" formControlName="state" id="inputCity"
+          *ngIf="streetForm.get('country').value !== 'USA'" [appValidation]="submitted">
+        <app-validation name="State" [submitted]="submitted" [control]="streetForm.get('state')"></app-validation>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <label for="Zip" class="form-label">Zip<small class="text-danger">*</small></label>
+        <input type="text" formControlName="zip" class="form-control" id="Zip" [appValidation]="submitted">
+        <app-validation name="Zip" [submitted]="submitted" [control]="streetForm.get('zip')"></app-validation>
+      </div>
+      <div class="col-6">
+        <label for="country" class="form-label">Country<small class="text-danger">*</small></label>
+        <select class="form-control" formControlName="country" [appValidation]="submitted">
+          <option value="">--Select Country--</option>
+          <option *ngFor="let country of countryList;; let i = index" [value]="country.code">{{country.name}}</option>
+        </select>
+        <app-validation name="Country" [submitted]="submitted" [control]="streetForm.get('country')"></app-validation>
+      </div>
+    </div>
+    <div>
+      <button type="submit" class="btn btn-primary"><i class="fas fa-trash-alt"></i>Submit</button>
+    </div>
+  </form>
+</div>

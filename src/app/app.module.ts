@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { RegisterFormComponent } from './address-form/register-form.component';
 import { AddressFormComponent } from './address-form/address-form/address-form.component';
@@ -16,6 +17,7 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { BookFormComponent } from './book/book-form/book-form.component';
 import { BookTableComponent } from './book/book-table/book-table.component';
 import { PricePipe } from './pipes/price.pipe';
+import { StreetAddressFormComponent } from './street-address-form/street-address-form.component';
 
 
 @NgModule({
@@ -31,13 +33,14 @@ import { PricePipe } from './pipes/price.pipe';
     BookFormComponent,
     BookTableComponent,
     PricePipe,
+    StreetAddressFormComponent,
 
 ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule, ReactiveFormsModule, NgbModule,
-    TextMaskModule,NgSelectModule
+    TextMaskModule,NgSelectModule, HttpClientModule,
     ],
   providers: [PricePipe],
   bootstrap: [AppComponent]
