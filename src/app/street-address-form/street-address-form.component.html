@@ -1,37 +1,41 @@
-<div class="container mt-5" *ngIf = "!loading">
+<div class="container mt-5">
   <form [formGroup]="streetForm" (ngSubmit)="onSubmit()">
     <div class="form-row">
       <div class="col">
-        <input type="text"  placeholder="Street Address*" formControlName="street-address" class="form-control form-control-lg" id="name" [appValidation]="submitted"
-          required>
+        <input type="text" placeholder="Street Address*" formControlName="street-address"
+          class="form-control form-control-lg" id="name" [appValidation]="submitted" required>
         <app-validation name="Street Address" [submitted]="submitted" [control]="streetForm.get('street-address')">
         </app-validation>
       </div>
       <div class="col">
-        <input type="text"  placeholder="Street Address 2" formControlName="street-address-2" class="form-control form-control-lg" id="address1"
-          [appValidation]="submitted" required>
+        <input type="text" placeholder="Street Address 2" formControlName="street-address-2"
+          class="form-control form-control-lg" id="address1" [appValidation]="submitted" required>
         <app-validation name="Street Address 2" [submitted]="submitted" [control]="streetForm.get('street-address-2')">
         </app-validation>
       </div>
     </div>
     <div class="form-row">
       <div class="col">
-        <input type="text"  placeholder="City" formControlName="city" class="form-control form-control-lg mt-3" id="City" [appValidation]="submitted">
+        <input type="text" placeholder="City" formControlName="city" class="form-control form-control-lg mt-3" id="City"
+          [appValidation]="submitted">
         <app-validation name="City" [submitted]="submitted" [control]="streetForm.get('city')"></app-validation>
-    </div>
+      </div>
       <div class="col">
-        <select class="form-control form-control-lg mt-3" formControlName="state" *ngIf="streetForm.get('country').value === 'US'">
+        <select class="form-control form-control-lg mt-3" formControlName="state"
+          *ngIf="streetForm.get('country').value === 'US'">
           <option value="">--Select a State--</option>
           <option *ngFor="let state of countryStateList['state']" [value]="state.code">{{state.name}}</option>
         </select>
-        <input id="State" type="text"  placeholder="State*" class="form-control form-control-lg mt-3" formControlName="state" id="inputCity"
-          *ngIf="streetForm.get('country').value !== 'US'" [appValidation]="submitted">
+        <input id="State" type="text" placeholder="State*" class="form-control form-control-lg mt-3"
+          formControlName="state" id="inputCity" *ngIf="streetForm.get('country').value !== 'US'"
+          [appValidation]="submitted">
         <app-validation name="State" [submitted]="submitted" [control]="streetForm.get('state')"></app-validation>
       </div>
     </div>
     <div class="form-row">
       <div class="col">
-        <input type="text"  placeholder="Zip/Postal Code*" formControlName="zip" class="form-control form-control-lg mt-3" id="Zip" [appValidation]="submitted">
+        <input type="text" placeholder="Zip/Postal Code*" formControlName="zip"
+          class="form-control form-control-lg mt-3" id="Zip" [appValidation]="submitted">
         <app-validation name="Zip" [submitted]="submitted" [control]="streetForm.get('zip')"></app-validation>
       </div>
       <div class="col">
@@ -42,6 +46,6 @@
         <app-validation name="Country" [submitted]="submitted" [control]="streetForm.get('country')"></app-validation>
       </div>
     </div>
-      <button type="submit" class="btn btn-primary mt-3">Submit</button>
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
   </form>
 </div>

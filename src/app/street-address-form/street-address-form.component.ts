@@ -11,21 +11,23 @@ import { CountryService } from '../country.service';
 export class StreetAddressFormComponent implements OnInit {
   streetForm: FormGroup;
   submitted: boolean;
-  countryStateList: any;
-  loading: boolean;
+  error: null;
+  countryStateList: any = {
+    'countries': [],
+    'state': []
+  };
 
-
-  constructor(private fb: FormBuilder, private dataservice: CountryService) {
-  }
+  constructor(private fb: FormBuilder, private dataservice: CountryService) { }
 
   ngOnInit(): void {
-    this.loading = true;
+    this.createForm();
     this.dataservice.getUrl().subscribe(data => {
       this.countryStateList = data;
-      this.loading = false;
+    }, error => {
+      console.error('error caught in component');
+      this.error = error;
+      throw error;
     });
-
-    this.createForm();
   }
 
   createForm() {
