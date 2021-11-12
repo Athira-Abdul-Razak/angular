@@ -19,17 +19,13 @@ export class StreetAddressFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
-    this.createForm();
-  }
-
-  getCountryStateList() {
     this.loading = true;
     this.dataservice.getUrl().subscribe(data => {
       this.countryStateList = data;
       this.loading = false;
-      console.log(this.countryStateList,'hi');
     });
+
+    this.createForm();
   }
 
   createForm() {
