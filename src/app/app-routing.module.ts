@@ -6,6 +6,7 @@ import { ShippingComponent } from './shipping/shipping.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { BookTableComponent } from './book/book-table/book-table.component';
 import { StreetAddressFormComponent } from './street-address-form/street-address-form.component';
+import { ProfileFormComponent } from './profile-form/profile-form.component';
 
 
 const routes: Routes = [{ path: 'Contact-Form', component: ContactFormComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [{ path: 'Contact-Form', component: ContactFormComponent 
 { path: 'Login-Form', component: LoginFormComponent },
 { path: 'Book-Table', component: BookTableComponent },
 { path: 'Street-Address-Form', component: StreetAddressFormComponent },
+{ path: 'Profile-Form', component: ProfileFormComponent },
 ];
 
 @NgModule({

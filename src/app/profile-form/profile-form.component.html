@@ -1,0 +1,19 @@
+<div class="container">
+    <form [formGroup]="profileForm" (ngSubmit)="postProfile(profileForm.value)">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" formControlName="name" [appValidation]="submitted">
+            <app-validation [submitted]="submitted" name="Name" [control]="profileForm.get('name')">
+            </app-validation>
+        </div>
+        <div>
+            <label for="job">Job:</label>
+            <input class="form-control" type="text" formControlName="job" [appValidation]="submitted">
+            <app-validation [submitted]="submitted" name="Job" [control]="profileForm.get('job')">
+            </app-validation>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary mt-3"><i class="fas fa-trash-alt"></i>Submit</button>
+        </div>
+    </form>
+</div>

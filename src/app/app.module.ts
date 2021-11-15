@@ -18,6 +18,7 @@ import { BookFormComponent } from './book/book-form/book-form.component';
 import { BookTableComponent } from './book/book-table/book-table.component';
 import { PricePipe } from './pipes/price.pipe';
 import { StreetAddressFormComponent } from './street-address-form/street-address-form.component';
+import { ProfileFormComponent } from './profile-form/profile-form.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { StreetAddressFormComponent } from './street-address-form/street-address
     BookTableComponent,
     PricePipe,
     StreetAddressFormComponent,
+    ProfileFormComponent,
 
 ],
   imports: [
