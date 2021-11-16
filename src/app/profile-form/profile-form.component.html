@@ -1,19 +1,23 @@
 <div class="container">
     <form [formGroup]="profileForm" (ngSubmit)="postProfile(profileForm.value)">
-        <div>
-            <label for="name">Name:</label>
-            <input type="text" class="form-control" formControlName="name" [appValidation]="submitted">
-            <app-validation [submitted]="submitted" name="Name" [control]="profileForm.get('name')">
-            </app-validation>
+        <div class="row">
+            <div class="col-6">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" formControlName="name" [appValidation]="submitted">
+                <app-validation [submitted]="submitted" name="Name" [control]="profileForm.get('name')">
+                </app-validation>
+            </div>
+            <div class="col-6">
+                <label for="job">Job:</label>
+                <input class="form-control" type="text" formControlName="job" [appValidation]="submitted">
+                <app-validation [submitted]="submitted" name="Job" [control]="profileForm.get('job')">
+                </app-validation>
+            </div>
         </div>
-        <div>
-            <label for="job">Job:</label>
-            <input class="form-control" type="text" formControlName="job" [appValidation]="submitted">
-            <app-validation [submitted]="submitted" name="Job" [control]="profileForm.get('job')">
-            </app-validation>
-        </div>
-        <div>
-            <button type="submit" class="btn btn-primary mt-3"><i class="fas fa-trash-alt"></i>Submit</button>
+        <div class="row">
+            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+            <button type="button" (click)="update(profileForm.value)" class="btn btn-primary mt-3 ml-3">Update</button>
+            <button type="button" (click)="Edit(profileForm.value)" class="btn btn-primary mt-3 ml-3">Edit</button>
         </div>
     </form>
 </div>

@@ -1,21 +1,33 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
-
-
+import { CountryService } from '../curd.service';
 @Component({
   selector: 'app-profile-form',
   templateUrl: './profile-form.component.html',
   styleUrls: ['./profile-form.component.css']
 })
+
 export class ProfileFormComponent implements OnInit {
   profileForm: FormGroup;
   submitted: boolean;
+  putData: FormGroup;
 
-  constructor(private fb: FormBuilder, private http: HttpClient) { }
+  constructor(private fb: FormBuilder, private dataservice: CountryService) { }
 
   ngOnInit(): void {
     this.createForm();
+  }
+
+  update(patchData: any) {
+    this.dataservice.patchUrl(patchData).subscribe(responseData => {
+      console.log(responseData);
+    });
+  }
+
+  Edit(putData: any) {
+    this.dataservice.putUrl(putData).subscribe(responseData => {
+      console.log(responseData);
+    });
   }
 
   createForm() {
@@ -25,10 +37,10 @@ export class ProfileFormComponent implements OnInit {
     });
   }
 
-  postProfile(postData: any) {
+  postProfile(postData: object) {
     this.submitted = true;
     if (this.profileForm.valid) {
-      this.http.post('https://reqres.in/api/users', postData).subscribe(responseData => {
+      this.dataservice.postUrl(postData).subscribe(responseData => {
         console.log(responseData);
       });
     }
