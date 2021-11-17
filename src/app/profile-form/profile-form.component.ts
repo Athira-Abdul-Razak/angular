@@ -11,6 +11,7 @@ export class ProfileFormComponent implements OnInit {
   profileForm: FormGroup;
   submitted: boolean;
   putData: FormGroup;
+  error: null;
 
   constructor(private fb: FormBuilder, private dataservice: CountryService) { }
 
@@ -18,15 +19,13 @@ export class ProfileFormComponent implements OnInit {
     this.createForm();
   }
 
-  update(patchData: any) {
-    this.dataservice.patchUrl(patchData).subscribe(responseData => {
-      console.log(responseData);
-    });
-  }
-
-  Edit(putData: any) {
+  update(putData: any) {
     this.dataservice.putUrl(putData).subscribe(responseData => {
       console.log(responseData);
+    }, error => {
+      console.error('error caught in component');
+      this.error = error;
+      throw error;
     });
   }
 

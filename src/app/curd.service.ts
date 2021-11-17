@@ -13,15 +13,11 @@ export class CountryService {
   constructor(private http: HttpClient) { }
 
   getUrl() {
-    return this.http.get(this.countryStateUrl).pipe();
-  }
-
-  patchUrl(patchData: object) {
-    return this.http.patch(this.profieFormUrl, patchData);
+    return this.http.get(this.countryStateUrl);
   }
 
   putUrl(putData: object) {
-    return this.http.patch(this.profieFormUrl, putData);
+    return this.http.put(this.profieFormUrl, putData);
   }
 
   postUrl(postData: object) {
