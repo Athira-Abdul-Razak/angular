@@ -19,6 +19,8 @@ import { BookTableComponent } from './book/book-table/book-table.component';
 import { PricePipe } from './pipes/price.pipe';
 import { StreetAddressFormComponent } from './street-address-form/street-address-form.component';
 import { ProfileFormComponent } from './profile-form/profile-form.component';
+import { EmployeeTableComponent } from './employee-table/employee-table.component';
+import { EmployeeFormComponent } from './employee-form/employee-form.component';
 
 
 @NgModule({
@@ -36,6 +38,8 @@ import { ProfileFormComponent } from './profile-form/profile-form.component';
     PricePipe,
     StreetAddressFormComponent,
     ProfileFormComponent,
+    EmployeeTableComponent,
+    EmployeeFormComponent,
 
 ],
   imports: [

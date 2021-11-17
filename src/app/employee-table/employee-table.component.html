@@ -1,0 +1,41 @@
+<button (click)="filter()">filter</button><table class="table mt-3">
+    <thead>
+        <tr>
+            <th scope="col">employee_name</th>
+            <th scope="col">employee_experiance</th>
+            <th scope="col">employee_designation</th>
+            <th scope="col">status</th>
+            <th scope="col">Action</th>
+           </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of employeeTable; let i=index">
+            <td><span>{{item.employee_name}}</span></td>
+            <td><span>{{item.employee_experiance}}</span></td>
+            <td><span>{{item.employee_designation}}</span></td>
+            <td><span>{{item.status}}</span></td>
+            <td>
+                <button  class="btn btn-success" type="button" data-toggle="modal" data-target="#exampleModal"
+                (click)="onAdd(content)">add</button>
+                <button class="btn btn-success" (click)="view()" type="button">view</button>
+                <button class="btn btn-success" (click)="delete()" type="button">delete</button>
+                <button  class="btn btn-success" type="button" data-toggle="modal" data-target="#exampleModal"
+                (click)="onEdit(content,bookForm.value,item)">edit</button>
+               </td>
+        </tr>
+    </tbody>
+</table>
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Employee</h4>
+        <button type="button" class="close" aria-label="Close">
+        </button>
+        <!-- (click)="modal.dismiss('Cross click')" -->
+    </div>
+    <div class="modal-body">
+        <!-- <app-book-form (updateBookForm)="onSubmit($event)" [titleName]="titleName" [bookValue]="selectedItem"
+            ></app-book-form> -->
+            <app-employee-form (cancelEvent)="modal.dismiss('Cross click')"  [titleName]="titleName"></app-employee-form>
+    </div>
+</ng-template>
+
