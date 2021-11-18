@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 export class CountryService {
   countryStateUrl = ' https://pod2-dlp.fayastage.com:7004/api/m/country_state_list';
   profieFormUrl = ' https://reqres.in/api/users/2';
+  deleteEmployeeUrl='https://retoolapi.dev/sFlOCx/intern_task';
 
   constructor(private http: HttpClient) { }
 
@@ -31,16 +32,16 @@ export class CountryService {
     return this.http.post('https://retoolapi.dev/sFlOCx/intern_task', postData);
   }
 
-  deleteEmployee() {
-    return this.http.delete('https://retoolapi.dev/sFlOCx/intern_task//<id>');
+  deleteEmployee(id:number) {
+    return this.http.delete(`${this.deleteEmployeeUrl}/${id}`);
   }
 
   putUrl(putData: object) {
     return this.http.put(this.profieFormUrl, putData);
   }
 
-  putEmployee(putData: object) {
-    return this.http.put('https://retoolapi.dev/sFlOCx/intern_task/', putData);
+  putEmployee(id:number, data:object) {
+    return this.http.put(`${this.deleteEmployeeUrl}/${id}`, data);
   }
 
   postUrl(postData: object) {
@@ -48,5 +49,7 @@ export class CountryService {
   }
 
 }
+
+
 
 

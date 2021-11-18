@@ -1,0 +1,30 @@
+<form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="employee_name">Employee Name</label>
+    <input id="employee_name" class="form-control" formControlName="employee_name" [appValidation]="submitted">
+    <app-validation [submitted]="submitted" name="Employee Name" [control]="bookForm.get('employee_name')">
+    </app-validation>
+    <label for="employee_experiance">Employee Experiance</label>
+    <input id="employee_experiance" class="form-control" formControlName="employee_experiance"
+      [appValidation]="submitted">
+    <app-validation [submitted]="submitted" name="Employee Experiance" [control]="bookForm.get('employee_experiance')">
+    </app-validation>
+    <label for="employee_designation">Employee Designation</label>
+    <input id="employee_designation" class="form-control" formControlName="employee_designation"
+      [appValidation]="submitted">
+    <app-validation [submitted]="submitted" name="Employee Designation"
+      [control]="bookForm.get('employee_designation')">
+    </app-validation>
+    <label for="status">Status</label>
+    <select class="form-control" formControlName="status">
+      <option value="true">active</option>
+      <option value="false">Inactive</option>
+    </select>
+    <app-validation [submitted]="submitted" name="Status" [control]="bookForm.get('status')">
+    </app-validation>
+  </div>
+  <div class="d-flex">
+    <button type="submit" class="btn btn-success">{{titleName}}</button>
+    <button type="button" class="btn btn-light" (click)="cancel()">Cancel</button>
+  </div>
+</form>
