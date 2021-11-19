@@ -10,13 +10,13 @@ import { ProfileFormComponent } from './profile-form/profile-form.component';
 import { EmployeeTableComponent } from './Employee/employee-form/employee-table/employee-table.component';
 
 const routes: Routes = [{ path: 'Contact-Form', component: ContactFormComponent },
-{ path: 'Register-Form', component: RegisterFormComponent },
-{ path: 'Shipping-Form', component: ShippingComponent },
-{ path: 'Login-Form', component: LoginFormComponent },
-{ path: 'Book-Table', component: BookTableComponent },
-{ path: 'Street-Address-Form', component: StreetAddressFormComponent },
-{ path: 'Profile-Form', component: ProfileFormComponent },
-{ path: 'Employee-Table', component: EmployeeTableComponent },
+{ path: 'register-form', component: RegisterFormComponent },
+{ path: 'shipping-form', component: ShippingComponent },
+{ path: 'login-form', component: LoginFormComponent },
+{ path: 'book-table', component: BookTableComponent },
+{ path: 'street-address-form', component: StreetAddressFormComponent },
+{ path: 'profile-form', component: ProfileFormComponent },
+{ path: 'employee-table', component: EmployeeTableComponent },
 ];
 
 @NgModule({

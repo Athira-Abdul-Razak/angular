@@ -37,7 +37,6 @@ export class EmployeeFormComponent implements OnChanges {
 
   onSubmit() {
     if (this.bookForm.valid) {
-      console.log(this.bookForm,'bookfor');
       this.updateBookForm.emit(this.bookForm.value);
     } else {
       this.submitted = true;

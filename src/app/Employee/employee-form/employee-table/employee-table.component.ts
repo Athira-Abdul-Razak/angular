@@ -1,3 +1,4 @@
+import { HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CountryService } from '../../../curd.service';
@@ -10,16 +11,15 @@ import { CountryService } from '../../../curd.service';
 export class EmployeeTableComponent implements OnInit {
   error: null;
   employeeTable: any ;
-  closePopup: string;
   content: any
   bookForm: FormGroup;
   selectedItem: any;
   titleName: string;
   submitted: boolean;
-  putData: object;
-  postData: object
   selectedIndex: number;
   isConfirmationOpen:boolean;
+  params: HttpParams;
+  isOpen:boolean;
 
   constructor(private formBuilder: FormBuilder,private dataservice: CountryService) {}
 
@@ -36,31 +36,36 @@ export class EmployeeTableComponent implements OnInit {
     this.isConfirmationOpen=true;
   }
 
-  filter() {
-    this.dataservice.getFilter().subscribe(data => {
-      console.log(data);
-      this.employeeTable = data;
-    }, error => {
-      console.error('error caught in component');
-      this.error = error;
-      throw error;
-    });
+  onStatusChanged(event: any) {
+    console.log(event.target.value);
+    this.params = this.params.delete('status');
+    if (event.target.value !== '' ) {
+      this.params = this.params.append('status', event.target.value);
+    }
+
+    this.getEmployee();
   }
 
   delete(id:number) {
     this.dataservice.deleteEmployee(id).subscribe((data): void => {
-      console.log(data);
-      this.employeeTable = data;
-    }, error => {
-      console.error('error caught in component');
-      this.error = error;
-      throw error;
+      this.getEmployee();
+
     });
   }
 
+  getId(item:any) {
+    this.selectedIndex = item.id;
+    console.log(this.selectedIndex);
+    this.isOpen=true;
+  }
+
   ngOnInit(): void {
-    this.dataservice.get().subscribe(data => {
-      console.log(data);
+    this.params = new HttpParams();
+    this.getEmployee();
+     }
+
+  getEmployee() {
+    this.dataservice.getEmployee(this.params).subscribe(data => {
       this.employeeTable = data;
     }, error => {
       console.error('error caught in component');
@@ -70,20 +75,23 @@ export class EmployeeTableComponent implements OnInit {
   }
 
   onSubmit(value:any) {
-    console.log(value,'hi');
     this.submitted = true;
     if (this.selectedItem) {
       this.dataservice.putEmployee(this.selectedIndex,value).subscribe(responseData => {
         console.log(responseData);
+        this.getEmployee();
       }, error => {
         console.error('error caught in component');
         this.error = error;
         throw error;
       });
+      this.isConfirmationOpen=false;
     } else {
-      this.dataservice.addPost(value).subscribe(responseData => {
+      this.dataservice.addPostEmployee(value).subscribe(responseData => {
         console.log(responseData);
+        this.getEmployee();
       });
+      this.isConfirmationOpen=false;
     }
   }
 
