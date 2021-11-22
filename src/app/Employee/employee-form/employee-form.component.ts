@@ -16,7 +16,6 @@ export class EmployeeFormComponent implements OnChanges {
   @Input() bookValue: any;
   bookForm: FormGroup;
   submitted: boolean;
-  putData:object
   error: null;
 
   constructor(private formBuilder: FormBuilder,private dataservice: CountryService) {
@@ -43,7 +42,7 @@ export class EmployeeFormComponent implements OnChanges {
     }
   }
 
-  cancel() {
+  cancelForm() {
     this.cancelEvent.emit(true);
   }
 

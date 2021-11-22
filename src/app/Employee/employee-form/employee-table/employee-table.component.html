@@ -23,34 +23,35 @@
       <td><span>{{item.employee_designation}}</span></td>
       <td>{{ item.status === 'true' ? 'Active' : 'Inactive'}}</td>
       <td>
-        <i class="fa fa-pencil mr-4" (click)="onEdit(item)"></i>
-        <i class="fa fa-trash-o" (click)="delete(item.id)"></i>
-        <button class="button" (click)="getId(item)">view</button>
+        <i class="fa fa-eye ml-4" (click)="getId(item)"></i>
+        <i class="fa fa-pencil ml-4" (click)="onEdit(item)"></i>
+        <i class="fa fa-trash-o ml-4" (click)="delete(item.id,'employee')"></i>
       </td>
     </tr>
   </tbody>
 </table>
-<div class="modal d-block" tabindex="-1" role="dialog" *ngIf="isConfirmationOpen">
+<div class="modal d-block" tabindex="-1" role="dialog" *ngIf="employeeFormOpen">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title">Employee</h4>
+        <h4 class="modal-title">Employee Details</h4>
       </div>
       <div class="modal-body">
-        <app-employee-form (updateBookForm)="onSubmit($event)" (cancelEvent)=" this.isConfirmationOpen = false"
+        <app-employee-form (updateBookForm)="onSubmit($event)" (cancelEvent)="this.employeeFormOpen = false"
           [bookValue]="selectedItem" [titleName]="titleName"></app-employee-form>
       </div>
     </div>
   </div>
 </div>
-<div class="modal d-block" tabindex="-1" role="dialog" *ngIf="isOpen">
+<div class="modal d-block" tabindex="-1" role="dialog" *ngIf="isConfirmationOpen">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title">Employee</h4>
+        <h4 class="modal-title">Employee Details</h4>
       </div>
       <div class="modal-body">
         <app-view-employee [selectedIndex]="selectedIndex"></app-view-employee>
+        <button class="btn btn-danger" (click)="cancel()">cancel</button>
       </div>
     </div>
   </div>

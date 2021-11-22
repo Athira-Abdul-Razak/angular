@@ -1,5 +1,5 @@
 import { Component, OnChanges, Input } from '@angular/core';
-import { CountryService } from '../curd.service';
+import { CountryService } from '../../curd.service';
 
 @Component({
   selector: 'app-view-employee',
@@ -8,7 +8,6 @@ import { CountryService } from '../curd.service';
 })
 export class ViewEmployeeComponent implements OnChanges {
   error: null;
-  isConfirmationOpen: boolean;
   @Input() selectedIndex: number;
   employee: any = {};
 

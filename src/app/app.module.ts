@@ -22,7 +22,7 @@ import { StreetAddressFormComponent } from './street-address-form/street-address
 import { ProfileFormComponent } from './profile-form/profile-form.component';
 import { EmployeeTableComponent } from './Employee/employee-form/employee-table/employee-table.component';
 import { EmployeeFormComponent } from './Employee/employee-form/employee-form.component';
-import { ViewEmployeeComponent } from './view-employee/view-employee.component';
+import { ViewEmployeeComponent } from './Employee/view-employee/view-employee.component';
 
 
 @NgModule({
