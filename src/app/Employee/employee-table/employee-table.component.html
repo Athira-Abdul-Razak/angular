@@ -43,14 +43,14 @@
     </div>
   </div>
 </div>
-<div class="modal d-block" tabindex="-1" role="dialog" *ngIf="isEmployeeDetailView">
+<div class="modal d-block" tabindex="-1" role="dialog" *ngIf="EmployeeDetailView">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title">Employee Details</h4>
       </div>
       <div class="modal-body">
-        <app-view-employee (cancelEvent)="this.isEmployeeDetailView = false" [selectedEmployeeId]="selectedEmployeeId">
+        <app-view-employee (cancelEvent)="this.EmployeeDetailView = false" [selectedEmployeeId]="selectedEmployeeId">
         </app-view-employee>
       </div>
     </div>

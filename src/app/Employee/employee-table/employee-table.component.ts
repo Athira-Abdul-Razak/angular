@@ -17,7 +17,7 @@ export class EmployeeTableComponent implements OnInit {
   selectedEmployeeId: number;
   employeeFormOpen: boolean;
   params: HttpParams;
-  isEmployeeDetailView: boolean;
+  EmployeeDetailView: boolean;
 
   constructor(private dataservice: CountryService) { }
 
@@ -52,7 +52,7 @@ export class EmployeeTableComponent implements OnInit {
 
   onView(item: any) {
     this.selectedEmployeeId = item.id;
-    this.isEmployeeDetailView = true;
+    this.EmployeeDetailView = true;
   }
 
   ngOnInit(): void {
