@@ -15,12 +15,11 @@ export class ViewEmployeeComponent implements OnChanges {
   constructor(private dataservice: CountryService) { }
 
   ngOnChanges() {
-    console.log(this.selectedEmployeeId);
-    this.getEmployeeById(this.selectedEmployeeId);
+    this.onView(this.selectedEmployeeId);
   }
 
-  getEmployeeById(id: number) {
-    this.dataservice.getEmployeeById(id).subscribe(data => {
+  onView(id: number) {
+    this.dataservice.onView(id).subscribe(data => {
       this.employee = data;
     }, error => {
       console.error('error caught in component');

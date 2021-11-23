@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CountryService } from '../../curd.service';
 
 
 @Component({
@@ -18,7 +17,7 @@ export class EmployeeFormComponent implements OnChanges {
   submitted: boolean;
   error: null;
 
-  constructor(private formBuilder: FormBuilder,private dataservice: CountryService) {
+  constructor(private formBuilder: FormBuilder) {
     this.bookForm = this.formBuilder.group({
       'id': '',
       'employee_name': ['', [Validators.required]],

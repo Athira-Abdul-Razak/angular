@@ -23,6 +23,7 @@
       <td><span>{{item.employee_designation}}</span></td>
       <td>{{ item.status === 'true' ? 'Active' : 'Inactive'}}</td>
       <td>
+        <a> <i class="fa fa-street-view" [routerLink]="[item.id]" (click)="viewDetail(item)"></i></a>
         <i class="fa fa-eye ml-4" (click)="onView(item)"></i>
         <i class="fa fa-pencil ml-4" (click)="onEdit(item)"></i>
         <i class="fa fa-trash-o ml-4" (click)="delete(item.id,'employee')"></i>
@@ -34,7 +35,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title">Employee Details</h4>
+        <h4 class="modal-title">{{titleName}}</h4>
       </div>
       <div class="modal-body">
         <app-employee-form (updateBookForm)="onSubmit($event)" (cancelEvent)="this.employeeFormOpen = false"
@@ -50,7 +51,21 @@
         <h4 class="modal-title">Employee Details</h4>
       </div>
       <div class="modal-body">
-        <app-view-employee (cancelEvent)="this.EmployeeDetailView = false" [selectedEmployeeId]="selectedEmployeeId">
+        <app-view-employee [selectedEmployeeId]="selectedEmployeeId" (cancelEvent)="this.EmployeeDetailView = false">
+        </app-view-employee>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal d-block" tabindex="-1" role="dialog" *ngIf="EmployeeDetailViewUrl">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Employee Details</h4>
+      </div>
+      <div class="modal-body">
+        <router-outlet></router-outlet>
+        <app-view-employee [selectedEmployeeId]="selectedEmployeeId" (cancelEvent)="this.EmployeeDetailViewUrl = false">
         </app-view-employee>
       </div>
     </div>

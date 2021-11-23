@@ -1,7 +1,7 @@
 import { HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CountryService } from '../../curd.service';
-
 @Component({
   selector: 'app-employee-table',
   templateUrl: './employee-table.component.html',
@@ -18,8 +18,10 @@ export class EmployeeTableComponent implements OnInit {
   employeeFormOpen: boolean;
   params: HttpParams;
   EmployeeDetailView: boolean;
+  EmployeeDetailViewUrl: boolean;
+  employee: any = {};
 
-  constructor(private dataservice: CountryService) { }
+  constructor(private dataservice: CountryService, private router: Router, private activatedRouter: ActivatedRoute) { }
 
   onAdd() {
     this.selectedEmployeeDetails = null;
@@ -55,6 +57,11 @@ export class EmployeeTableComponent implements OnInit {
     this.EmployeeDetailView = true;
   }
 
+  viewDetail(item: any) {
+    this.selectedEmployeeId = item.id;
+    this.EmployeeDetailViewUrl = true;
+  }
+
   ngOnInit(): void {
     this.params = new HttpParams();
     this.getEmployee();
@@ -75,6 +82,7 @@ export class EmployeeTableComponent implements OnInit {
       this.dataservice.putEmployee(this.selectedEmployeeId, value).subscribe(responseData => {
         this.getEmployee();
       }, error => {
+        console.error('error caught in component');
         this.error = error;
         throw error;
       });
@@ -83,6 +91,7 @@ export class EmployeeTableComponent implements OnInit {
       this.dataservice.addPostEmployee(value).subscribe(responseData => {
         this.getEmployee();
       }, error => {
+        console.error('error caught in component');
         this.error = error;
         throw error;
       });

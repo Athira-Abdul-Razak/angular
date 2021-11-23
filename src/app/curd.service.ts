@@ -20,8 +20,13 @@ export class CountryService {
     return this.http.get(this.employeeUrl, { params });
   }
 
-  getEmployeeById(selectedIndex: any) {
-    return this.http.get(`${this.employeeUrl}/${selectedIndex}`);
+  onView(id: any) {
+    return this.http.get(`${this.employeeUrl}/${id}`);
+  }
+
+  viewEmployeeDetail(id:number) {
+    return this.http.get(`${this.employeeUrl}/${id}`);
+
   }
 
   addPostEmployee(postData: object) {
