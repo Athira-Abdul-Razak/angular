@@ -24,12 +24,12 @@ export class CountryService {
     return this.http.get(`${this.employeeUrl}/${id}`);
   }
 
-  viewEmployeeDetail(id:number) {
+  getEmployeeDetailById(id:number) {
     return this.http.get(`${this.employeeUrl}/${id}`);
 
   }
 
-  addPostEmployee(postData: object) {
+   addPostEmployee(postData: object) {
     return this.http.post('https://retoolapi.dev/sFlOCx/intern_task', postData);
   }
 

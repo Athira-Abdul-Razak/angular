@@ -57,11 +57,6 @@ export class EmployeeTableComponent implements OnInit {
     this.EmployeeDetailView = true;
   }
 
-  viewDetail(item: any) {
-    this.selectedEmployeeId = item.id;
-    this.EmployeeDetailViewUrl = true;
-  }
-
   ngOnInit(): void {
     this.params = new HttpParams();
     this.getEmployee();

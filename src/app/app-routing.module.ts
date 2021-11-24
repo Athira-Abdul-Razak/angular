@@ -9,7 +9,6 @@ import { StreetAddressFormComponent } from './street-address-form/street-address
 import { ProfileFormComponent } from './profile-form/profile-form.component';
 import { EmployeeTableComponent } from './Employee/employee-table/employee-table.component';
 import { ViewUrlComponent } from './Employee/view-details/view-details.component';
-import { ViewEmployeeComponent } from './Employee/view-employee/view-employee.component';
 
 const routes: Routes = [{ path: 'Contact-Form', component: ContactFormComponent },
 { path: 'register-form', component: RegisterFormComponent },
@@ -18,7 +17,7 @@ const routes: Routes = [{ path: 'Contact-Form', component: ContactFormComponent 
 { path: 'book-table', component: BookTableComponent },
 { path: 'street-address-form', component: StreetAddressFormComponent },
 { path: 'profile-form', component: ProfileFormComponent},
-{ path: 'employee-table', component: EmployeeTableComponent, children: [
+{ path: 'employee-table', children: [
   {path: '', component: EmployeeTableComponent },
   {path: ':id', component: ViewUrlComponent },
 ] },
