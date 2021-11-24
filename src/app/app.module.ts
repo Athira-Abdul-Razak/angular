@@ -24,6 +24,7 @@ import { EmployeeTableComponent } from './Employee/employee-table/employee-table
 import { EmployeeFormComponent } from './Employee/employee-form/employee-form.component';
 import { ViewEmployeeComponent } from './Employee/view-employee/view-employee.component';
 import { ViewUrlComponent } from './Employee/view-details/view-details.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { ViewUrlComponent } from './Employee/view-details/view-details.component
     ActiveBlockedPipe,
     ViewEmployeeComponent,
     ViewUrlComponent,
+    LoginComponent,
 
 ],
   imports: [

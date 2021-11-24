@@ -9,11 +9,17 @@ import { StreetAddressFormComponent } from './street-address-form/street-address
 import { ProfileFormComponent } from './profile-form/profile-form.component';
 import { EmployeeTableComponent } from './Employee/employee-table/employee-table.component';
 import { ViewUrlComponent } from './Employee/view-details/view-details.component';
+import { LoginComponent } from './login/login.component';
+
 
 const routes: Routes = [
   {
-    path: 'Contact-Form',
+    path: 'contact-form',
     component: ContactFormComponent
+  },
+  {
+    path: 'sign-up',
+    component: LoginComponent
   },
   {
     path: 'register-form',
