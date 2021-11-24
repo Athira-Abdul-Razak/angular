@@ -10,21 +10,52 @@ import { ProfileFormComponent } from './profile-form/profile-form.component';
 import { EmployeeTableComponent } from './Employee/employee-table/employee-table.component';
 import { ViewUrlComponent } from './Employee/view-details/view-details.component';
 
-const routes: Routes = [{ path: 'Contact-Form', component: ContactFormComponent },
-{ path: 'register-form', component: RegisterFormComponent },
-{ path: 'shipping-form', component: ShippingComponent },
-{ path: 'login-form', component: LoginFormComponent },
-{ path: 'book-table', component: BookTableComponent },
-{ path: 'street-address-form', component: StreetAddressFormComponent },
-{ path: 'profile-form', component: ProfileFormComponent},
-{ path: 'employee-table', children: [
-  {path: '', component: EmployeeTableComponent },
-  {path: ':id', component: ViewUrlComponent },
-] },
+const routes: Routes = [
+  {
+    path: 'Contact-Form',
+    component: ContactFormComponent
+  },
+  {
+    path: 'register-form',
+    component: RegisterFormComponent
+  },
+  {
+    path: 'shipping-form',
+    component: ShippingComponent
+  },
+  {
+    path: 'login-form',
+    component: LoginFormComponent
+  },
+  {
+    path: 'book-table',
+    component: BookTableComponent
+  },
+  {
+    path: 'street-address-form',
+    component: StreetAddressFormComponent
+  },
+  {
+    path: 'profile-form',
+    component: ProfileFormComponent
+  },
+  {
+    path: 'employee-table',
+    children: [
+      {
+        path: '',
+        component: EmployeeTableComponent
+      },
+      {
+        path: ':id',
+        component: ViewUrlComponent
+      },
+    ]
+  },
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }
