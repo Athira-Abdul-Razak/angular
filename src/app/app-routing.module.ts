@@ -10,51 +10,79 @@ import { ProfileFormComponent } from './profile-form/profile-form.component';
 import { EmployeeTableComponent } from './Employee/employee-table/employee-table.component';
 import { ViewUrlComponent } from './Employee/view-details/view-details.component';
 import { LoginComponent } from './login/login.component';
+import { AuthGuardService } from './auth-guard.service';
+
+
 
 
 const routes: Routes = [
   {
     path: 'contact-form',
-    component: ContactFormComponent
+    component: ContactFormComponent,
+    canActivate: [AuthGuardService],
   },
   {
-    path: 'sign-up',
+    path: '', redirectTo: '/sign-in',
+     pathMatch: 'full'
+   },
+
+
+  {
+    path: 'sign-in',
     component: LoginComponent
+
   },
   {
     path: 'register-form',
-    component: RegisterFormComponent
+    component: RegisterFormComponent,
+    // canActivate: [AuthGuardService],
+
   },
   {
     path: 'shipping-form',
-    component: ShippingComponent
+    component: ShippingComponent,
+    canActivate: [AuthGuardService],
+
   },
   {
     path: 'login-form',
-    component: LoginFormComponent
+    component: LoginFormComponent,
+    canActivate: [AuthGuardService],
+
   },
   {
     path: 'book-table',
-    component: BookTableComponent
+    component: BookTableComponent,
+    canActivate: [AuthGuardService],
+
   },
   {
     path: 'street-address-form',
-    component: StreetAddressFormComponent
+    component: StreetAddressFormComponent,
+    canActivate: [AuthGuardService],
+
   },
   {
     path: 'profile-form',
-    component: ProfileFormComponent
+    component: ProfileFormComponent,
+    canActivate: [AuthGuardService],
+
   },
+
   {
     path: 'employee-table',
     children: [
       {
         path: '',
-        component: EmployeeTableComponent
+        component: EmployeeTableComponent,
+        canActivate: [AuthGuardService],
+
       },
       {
         path: ':id',
-        component: ViewUrlComponent
+        component: ViewUrlComponent,
+        canActivate: [AuthGuardService],
+
       },
     ]
   },

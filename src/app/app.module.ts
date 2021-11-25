@@ -25,6 +25,7 @@ import { EmployeeFormComponent } from './Employee/employee-form/employee-form.co
 import { ViewEmployeeComponent } from './Employee/view-employee/view-employee.component';
 import { ViewUrlComponent } from './Employee/view-details/view-details.component';
 import { LoginComponent } from './login/login.component';
+import { TasksComponent } from './tasks/tasks.component';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { LoginComponent } from './login/login.component';
     ViewEmployeeComponent,
     ViewUrlComponent,
     LoginComponent,
+    TasksComponent,
 
 ],
   imports: [
