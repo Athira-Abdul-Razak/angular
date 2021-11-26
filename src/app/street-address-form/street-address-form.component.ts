@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CountryService } from '../curd.service';
+import { curdService } from '../curd.service';
 
 @Component({
   selector: 'app-street-address-form',
@@ -17,7 +17,7 @@ export class StreetAddressFormComponent implements OnInit {
     'state': []
   };
 
-  constructor(private fb: FormBuilder, private dataservice: CountryService) { }
+  constructor(private fb: FormBuilder, private dataservice: curdService) { }
 
   ngOnInit(): void {
     this.createForm();

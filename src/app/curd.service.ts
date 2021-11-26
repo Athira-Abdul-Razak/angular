@@ -5,7 +5,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
   providedIn: 'root'
 })
 
-export class CountryService {
+export class curdService {
   countryStateUrl = ' https://pod2-dlp.fayastage.com:7004/api/m/country_state_list';
   profieFormUrl = ' https://reqres.in/api/users/2';
   employeeUrl = 'https://retoolapi.dev/sFlOCx/intern_task';

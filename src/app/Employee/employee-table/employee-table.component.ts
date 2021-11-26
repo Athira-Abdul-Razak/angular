@@ -1,7 +1,7 @@
 import { HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CountryService } from '../../curd.service';
+import { curdService } from '../../curd.service';
 @Component({
   selector: 'app-employee-table',
   templateUrl: './employee-table.component.html',
@@ -18,10 +18,9 @@ export class EmployeeTableComponent implements OnInit {
   employeeFormOpen: boolean;
   params: HttpParams;
   EmployeeDetailView: boolean;
-  EmployeeDetailViewUrl: boolean;
   employee: any = {};
 
-  constructor(private dataservice: CountryService, private router: Router, private activatedRouter: ActivatedRoute) { }
+  constructor(private dataservice: curdService, private router: Router, private activatedRouter: ActivatedRoute) { }
 
   onAdd() {
     this.selectedEmployeeDetails = null;

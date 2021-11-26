@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
-import { CountryService } from 'src/app/curd.service';
-
+import { ActivatedRoute } from '@angular/router';
+import { curdService } from 'src/app/curd.service';
 @Component({
   selector: 'app-view-url',
   templateUrl: './view-details.component.html',
@@ -13,7 +12,7 @@ export class ViewUrlComponent implements OnInit {
   employee: any;
   error: null;
 
-  constructor(private dataservice: CountryService, private route: ActivatedRoute) { }
+  constructor(private dataservice: curdService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.employeeId = this.route.snapshot.paramMap.get('id');
@@ -28,7 +27,5 @@ export class ViewUrlComponent implements OnInit {
       this.error = error;
       throw error;
     });
-
   }
-
 }

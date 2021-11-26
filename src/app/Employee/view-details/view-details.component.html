@@ -1,35 +1,18 @@
-<div class="container">
-    <div class="row">
-        <div>
-            <label>Employee Name:</label>
-        </div>
-        <div class="col">
-            <label>{{employee?.employee_name}}</label>
-        </div>
-        <div class="row">
-            <div>
-                <label>Employee Experiance:</label>
-            </div>
-            <div class="col">
-                <label>{{employee?.employee_experiance}}</label>
-            </div>
-        </div>
-        </div>
-    
-    <div class="row">
-        <div>
-            <label>Employee Designation:</label>
-        </div>
-        <div class="col">
-            <label>{{employee?.employee_designation}}</label>
-        </div>
-        <div class="row">
-            <div>
-                <label>Status:</label>
-            </div>
-            <div class="col">
-                <label>{{employee?.status}}</label>
-            </div>
-        </div>
-        
-    </div>
+<ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between ">
+        Employee Name:
+        <span>{{employee?.employee_name}}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        Employee Experiance:
+        <span>{{employee?.employee_experiance}}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        Employee Designation:
+        <span>{{employee?.employee_designation}}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        Status:
+        <span>{{employee?.status}}</span>
+    </li>
+</ul>

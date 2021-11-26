@@ -1,20 +1,32 @@
-<div class="d-flex justify-content-center align-items-center container ">
+<div class="d-flex justify-content-center">
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
         <div class="form-group">
             <div>
                 <label for="Email">Email:</label>
-                <input type="email" class="form-control" formControlName="email" [appValidation]="submitted">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <input type="email" class="form-control" formControlName="email" [appValidation]="submitted">
+                </div>
                 <app-validation [submitted]="submitted" name="Email" [control]="loginForm.get('email')">
                 </app-validation>
             </div>
             <div>
                 <label for="Password"> Password: </label>
-                <input class="form-control" type="password" formControlName="password" [appValidation]="submitted">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-eye-slash" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <input class="form-control" type="password" formControlName="password" [appValidation]="submitted">
+                </div>
                 <app-validation [submitted]="submitted" name="Password" [control]="loginForm.get('password')">
                 </app-validation>
             </div>
-            <div>
-                <button type="submit" class="btn btn-primary mt-1">Login</button>
+            <div class="text-center">
+                <button type="submit" class="btn btn-success mt-1 btn-lg padding_0">Login</button>
             </div>
         </div>
     </form>

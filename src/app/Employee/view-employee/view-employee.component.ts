@@ -1,5 +1,5 @@
 import { Component, OnChanges, Input, Output, EventEmitter } from '@angular/core';
-import { CountryService } from '../../curd.service';
+import { curdService } from '../../curd.service';
 
 @Component({
   selector: 'app-view-employee',
@@ -12,7 +12,7 @@ export class ViewEmployeeComponent implements OnChanges {
   @Output() cancelEvent = new EventEmitter<any>();
   employee: any = {};
 
-  constructor(private dataservice: CountryService) { }
+  constructor(private dataservice: curdService) { }
 
   ngOnChanges() {
     this.onView(this.selectedEmployeeId);

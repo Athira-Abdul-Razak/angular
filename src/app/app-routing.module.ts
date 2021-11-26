@@ -10,81 +10,74 @@ import { ProfileFormComponent } from './profile-form/profile-form.component';
 import { EmployeeTableComponent } from './Employee/employee-table/employee-table.component';
 import { ViewUrlComponent } from './Employee/view-details/view-details.component';
 import { LoginComponent } from './login/login.component';
-import { AuthGuardService } from './auth-guard.service';
-
-
+import { AuthGuardService as AuthGuard } from './auth-guard.service';
+import { TasksComponent } from './tasks/tasks.component';
 
 
 const routes: Routes = [
   {
-    path: 'contact-form',
-    component: ContactFormComponent,
-    canActivate: [AuthGuardService],
-  },
-  {
-    path: '', redirectTo: '/sign-in',
-     pathMatch: 'full'
-   },
-
-
-  {
-    path: 'sign-in',
-    component: LoginComponent
-
-  },
-  {
-    path: 'register-form',
-    component: RegisterFormComponent,
-    // canActivate: [AuthGuardService],
-
-  },
-  {
-    path: 'shipping-form',
-    component: ShippingComponent,
-    canActivate: [AuthGuardService],
-
-  },
-  {
-    path: 'login-form',
-    component: LoginFormComponent,
-    canActivate: [AuthGuardService],
-
-  },
-  {
-    path: 'book-table',
-    component: BookTableComponent,
-    canActivate: [AuthGuardService],
-
-  },
-  {
-    path: 'street-address-form',
-    component: StreetAddressFormComponent,
-    canActivate: [AuthGuardService],
-
-  },
-  {
-    path: 'profile-form',
-    component: ProfileFormComponent,
-    canActivate: [AuthGuardService],
-
-  },
-
-  {
-    path: 'employee-table',
+    path: 'tasks',
+     canActivate: [AuthGuard],
     children: [
       {
         path: '',
-        component: EmployeeTableComponent,
-        canActivate: [AuthGuardService],
+        component: TasksComponent,
+      },
+      {
+        path: 'employee-table',
+        children: [
+          {
+            path: '',
+            component: EmployeeTableComponent,
+
+          },
+          {
+            path: ':id',
+            component: ViewUrlComponent,
+          }
+        ]
+      },
+      {
+        path: 'contact-form',
+        component: ContactFormComponent,
 
       },
       {
-        path: ':id',
-        component: ViewUrlComponent,
-        canActivate: [AuthGuardService],
+        path: 'register-form',
+        component: RegisterFormComponent,
 
       },
+      {
+        path: 'shipping-form',
+        component: ShippingComponent,
+
+      },
+      {
+        path: 'login-form',
+        component: LoginFormComponent,
+
+      },
+      {
+        path: 'book-table',
+        component: BookTableComponent,
+      },
+      {
+        path: 'street-address-form',
+        component: StreetAddressFormComponent,
+      },
+      {
+        path: 'profile-form',
+        component: ProfileFormComponent,
+      },
     ]
+  },
+  {
+    path: '', redirectTo: '/sign-in',
+    pathMatch: 'full'
+  },
+  {
+    path: 'sign-in',
+    component: LoginComponent
   },
 ];
 @NgModule({

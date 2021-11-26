@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CountryService } from '../curd.service';
+import { curdService } from '../curd.service';
 @Component({
   selector: 'app-profile-form',
   templateUrl: './profile-form.component.html',
@@ -13,7 +13,7 @@ export class ProfileFormComponent implements OnInit {
   putData: FormGroup;
   error: null;
 
-  constructor(private fb: FormBuilder, private dataservice: CountryService) { }
+  constructor(private fb: FormBuilder, private dataservice: curdService) { }
 
   ngOnInit(): void {
     this.createForm();

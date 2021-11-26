@@ -1,19 +1,19 @@
-<div class="container">
-    <div class=row>
-        <label>Employee Name:</label>
-        <label>{{employee.employee_name}}</label>
-    </div>
-    <div class="row">
-        <label>Employee Experiance:</label>
-        <label>{{employee.employee_experiance}}</label>
-    </div>
-    <div class="row">
-        <label>Employee Designation:</label>
-        <label>{{employee.employee_designation}}</label>
-    </div>
-    <div class="row">
-        <label>Status:</label>
-        <label>{{employee.status}}</label>
-    </div>
-    <button class="close" (click)="cancelView()">cancel</button>
-</div>
+<ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between ">
+        Employee Name:
+        <span>{{employee?.employee_name}}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        Employee Experiance:
+        <span>{{employee?.employee_experiance}}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        Employee Designation:
+        <span>{{employee?.employee_designation}}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        Status:
+        <span>{{employee?.status}}</span>
+    </li>
+</ul>
+<button class="close mt-2" (click)="cancelView()">cancel</button>

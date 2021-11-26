@@ -1,8 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, Subject } from 'rxjs';
-
-
 interface AuthResponseData {
   access_token: string;
   expires_in: number;
@@ -18,8 +15,6 @@ export class AuthService {
   loginUrl = 'https://pod1.salesonepro.com:8005/signin//token/';
   clientId = 'fU3kkI1Zc1gwGcs97b7dQYHzgeBS3THBKwKevZvh';
   secret = 'UuGGXMv2qC4ebKyKySRYoy1ITJd1eOn5EYXOaq6CmOuAUvcAUHeJp2sv1wTZfZGWxSVqfoQ1pwwgNGgX4UFmy0JfM814Rsppw4LPhrywAhlegmLU2xdakonFr1kfabXh';
-  //  user = new Subject<User>();
-  user: any;
   constructor(private http: HttpClient) { }
 
   signIn(creds: any) {
@@ -29,6 +24,15 @@ export class AuthService {
     return this.http.post<AuthResponseData>(
      this.loginUrl, creds, { headers: headers},
     );
+  }
+
+  public isAuthenticated(): boolean  {
+    const token = sessionStorage.getItem('refresh_token');
+    if (token) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
 
