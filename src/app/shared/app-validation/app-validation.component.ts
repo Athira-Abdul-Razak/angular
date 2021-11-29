@@ -1,10 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
-
-
 @Component({
   selector: 'app-validation',
-  template: `<li *ngIf="control.invalid && (control.dirty || control.touched || submitted)" class="text-danger">
+  template: `<li *ngIf="control.invalid && ( control.touched || submitted)" class="text-danger">
    {{name}} is required.
 </li>
 <li *ngIf="control.errors?.email  && (control.dirty || control.touched || submitted)" class="text-danger"> Enter a valid {{name}} address.</li>

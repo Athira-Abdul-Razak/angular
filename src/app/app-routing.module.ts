@@ -13,7 +13,6 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuardService as AuthGuard } from './auth-guard.service';
 import { TasksComponent } from './tasks/tasks.component';
 
-
 const routes: Routes = [
   {
     path: 'tasks',
@@ -73,7 +72,7 @@ const routes: Routes = [
   },
   {
     path: '', redirectTo: '/sign-in',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'sign-in',

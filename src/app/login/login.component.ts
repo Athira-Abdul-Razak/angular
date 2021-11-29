@@ -13,7 +13,6 @@ import { CustomValidation } from '../shared/custom-validator/custom-validator';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   submitted: boolean;
-  // token: object;
 
   constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) { }
 
