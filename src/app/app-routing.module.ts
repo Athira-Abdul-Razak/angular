@@ -10,7 +10,7 @@ import { ProfileFormComponent } from './profile-form/profile-form.component';
 import { EmployeeTableComponent } from './Employee/employee-table/employee-table.component';
 import { ViewUrlComponent } from './Employee/view-details/view-details.component';
 import { LoginComponent } from './login/login.component';
-import { AuthGuardService as AuthGuard } from './auth-guard.service';
+import { AuthGuardService as AuthGuard } from './auth/auth-guard.service';
 import { TasksComponent } from './tasks/tasks.component';
 
 const routes: Routes = [

@@ -1,10 +1,10 @@
 <nav>
   <select (change)="onStatusChanged($event)">
     <option value="">Select Status</option>
-    <option value="true">Active</option>
+    <option class="dropdown-item" value="true">Active</option>
     <option value="false">Inactive</option>
   </select>
-  <button class="btn btn-light" (click)="onAdd()">Add</button>
+  <button class="btn btn-success float-right" (click)="onAdd()">+Add</button>
 </nav>
 <table class="table">
   <thead>

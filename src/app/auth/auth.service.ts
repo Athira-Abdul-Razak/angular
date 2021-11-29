@@ -39,10 +39,6 @@ export class AuthService {
     }
   }
 
-  getToken() {
-    const token = sessionStorage.getItem('refresh_token');
-  }
-
   logout() {
     sessionStorage.removeItem('refresh_token');
     this.loggedIn.next(false);
