@@ -10,7 +10,6 @@ import { curdService } from '../curd.service';
 export class ProfileFormComponent implements OnInit {
   profileForm: FormGroup;
   submitted: boolean;
-  putData: FormGroup;
   error: null;
 
   constructor(private fb: FormBuilder, private dataservice: curdService) { }

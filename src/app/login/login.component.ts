@@ -33,7 +33,6 @@ export class LoginComponent implements OnInit {
       const creds = 'grant_type=password&password='
         + encodeURIComponent(credentials['password']) + '&username=' + encodeURIComponent(credentials['email']);
       this.authService.signIn(creds).subscribe(response => {
-        console.log(response, 'response');
         sessionStorage.setItem('refresh_token', response.refresh_token);
         this.router.navigate(['/tasks']);
       }, error => {

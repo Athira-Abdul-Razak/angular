@@ -1,5 +1,4 @@
 import { AbstractControl } from '@angular/forms';
-
 export class CustomValidation {
     static emailValidator(control: AbstractControl) {
         if (control.value) {

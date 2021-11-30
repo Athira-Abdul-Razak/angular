@@ -6,6 +6,7 @@ import { curdService } from '../../curd.service';
   templateUrl: './view-employee.component.html',
   styleUrls: ['./view-employee.component.css']
 })
+
 export class ViewEmployeeComponent implements OnChanges {
   error: null;
   @Input() selectedEmployeeId: number;
